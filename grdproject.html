@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>grdproject &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="next" title="grdraster" href="grdraster.html" />
+    <link rel="prev" title="grdpmodeler" href="grdpmodeler.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="grdraster.html" title="grdraster"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="grdpmodeler.html" title="grdpmodeler"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="grdproject">
+<span id="index-0"></span><h1>grdproject<a class="headerlink" href="#grdproject" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/grdproject.html" title="(在 GMT v5.2.1)"><span>grdproject</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">对网格数据做地图变换和逆变换</td>
+</tr>
+</tbody>
+</table>
+<p>该命令可以将地理坐标下的网格数据投影到一个矩形网格中，也可以将一个矩形坐标系下的网格数据反投影到地理坐标下。</p>
+<div class="section" id="id1">
+<h2>选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">&lt;in_grdfile&gt;</span></code></dt>
+<dd>要进行变换的2D网格数据</dd>
+<dt><code class="docutils literal"><span class="pre">-G&lt;out_grdfile&gt;</span></code></dt>
+<dd>输出的网格文件名</dd>
+<dt><code class="docutils literal"><span class="pre">-C[&lt;dx&gt;/&lt;dy&gt;]</span></code></dt>
+<dd>默认投影后的坐标是相对于区域的左下角，该选项使得投影后的坐标相对于投影的中心。 <code class="docutils literal"><span class="pre">&lt;dx&gt;/&lt;dy&gt;</span></code> 是要加到投影后坐标的偏移量。</dd>
+<dt><code class="docutils literal"><span class="pre">-D&lt;xinc&gt;[&lt;unit&gt;][=|+][/&lt;yinc&gt;[&lt;unit&gt;]][=|+]</span></code></dt>
+<dd>指定新网格的网格间隔。</dd>
+<dt><code class="docutils literal"><span class="pre">-E&lt;dpi&gt;</span></code></dt>
+<dd>设置新网格的分辨率，即每英寸的点数。</dd>
+<dt><code class="docutils literal"><span class="pre">-F[c|i|p|e|f|k|M|n|u]</span></code></dt>
+<dd>见官方文档</dd>
+<dt><code class="docutils literal"><span class="pre">-I</span></code></dt>
+<dd>逆变换，将矩形区域变换成地理区域。</dd>
+<dt><code class="docutils literal"><span class="pre">-Mc|i|p</span></code></dt>
+<dd>见官方文档</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>选项<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>将地理网格数据变换成Mercator网格，分辨率为300dpi:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt grdproject dbdb5.nc -R20/50/12/25 -Jm0.25i -E300 -r -Gdbdb5_merc.nc
+</pre></div>
+</div>
+<p>将网格数据逆变换为地理网格:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt grdproject topo_tm.nc -R-80/-70/20/40 -Jt-75/1:500000 -I -D5m -V -Gtopo.nc
+</pre></div>
+</div>
+<p>将UTM（以米为单位）下的网格数据逆变换为地理网格:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt grdproject topo_utm.nc -R203/205/60/65 -Ju5/1:1 -I -Mm -Gtopo.nc -V
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="grdproject" data-title="grdproject" data-url="http://modules.gmt-china.org/grdproject.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">grdproject</a><ul>
+<li><a class="reference internal" href="#id1">选项</a></li>
+<li><a class="reference internal" href="#id2">选项</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="grdpmodeler.html"
+                          title="上一页">&larr; grdpmodeler</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="grdraster.html"
+                          title="下一页">&rarr; grdraster</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/grdproject.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/grdproject.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="grdraster.html" title="grdraster"
+             >下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="grdpmodeler.html" title="grdpmodeler"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

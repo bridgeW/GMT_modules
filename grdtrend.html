@@ -1,0 +1,222 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>grdtrend &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="next" title="grdvector" href="grdvector.html" />
+    <link rel="prev" title="grdtrack" href="grdtrack.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="grdvector.html" title="grdvector"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="grdtrack.html" title="grdtrack"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="grdtrend">
+<span id="index-0"></span><h1>grdtrend<a class="headerlink" href="#grdtrend" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/grdtrend.html" title="(在 GMT v5.2.1)"><span>grdtrend</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">拟合网格的趋势面并计算残差</td>
+</tr>
+</tbody>
+</table>
+<p>该命令会读取一个2D网格文件，并用最小二乘方法拟合一个低阶多项式趋势面。多项式趋势面的定义为：</p>
+<blockquote>
+<div>m1 + m2*x + m3*y + m4*x*y + m5*x*x + m6*y*y + m7*x*x*x +
+m8*x*x*y + m9*x*y*y + m10*y*y*y.</div></blockquote>
+<div class="section" id="id1">
+<h2>选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">&lt;gridfile&gt;</span></code></dt>
+<dd>2D网格文件名</dd>
+<dt><code class="docutils literal"><span class="pre">-N&lt;n_model&gt;[r]</span></code></dt>
+<dd><p class="first">指定要拟合的模型。</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;n_model&gt;</span></code> 指定要拟合的模型的参数个数。例如 <code class="docutils literal"><span class="pre">-N3</span></code> 表示bilinear趋势， <code class="docutils literal"><span class="pre">-N6</span></code> 表示 quadratic趋势面。加上 <code class="docutils literal"><span class="pre">r</span></code> 表示robust拟合，此时，程序会根据robust scale estimate多次迭代，给数据重新赋予权重，以得到一个对outliers不敏感的解。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-D&lt;diff.nc&gt;</span></code></dt>
+<dd>将残差（输入减去拟合）结果写到网格文件中</dd>
+<dt><code class="docutils literal"><span class="pre">-T&lt;trend.nc&gt;</span></code></dt>
+<dd>将拟合得到的趋势文件写到网格文件 <code class="docutils literal"><span class="pre">&lt;trend.nc&gt;</span></code> 中</dd>
+<dt><code class="docutils literal"><span class="pre">-W&lt;weight.nc&gt;</span></code></dt>
+<dd>若 <code class="docutils literal"><span class="pre">&lt;weight.nc&gt;</span></code> 存在，则读取该文件，并求解一个有权重的最小二乘问题。默认为常规的最小二乘拟合。若 <code class="docutils literal"><span class="pre">-N</span></code> 选项中指定了robust拟合，则robust拟合中所使用的权重会写到文件 <code class="docutils literal"><span class="pre">&lt;weight.nc&gt;</span></code> 中。</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>从网格文件中移除线性趋势，并将结果写到残差文件中:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt grdtrend hawaii_topo.nc -N3 -Dhawaii_residual.nc
+</pre></div>
+</div>
+<p>对网格文件做bicubic面的robust拟合:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt grdtrend hawaii_topo.nc -N10r -Thawaii_trend.nc -Whawaii_weight.nc -V
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="grdtrend" data-title="grdtrend" data-url="http://modules.gmt-china.org/grdtrend.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">grdtrend</a><ul>
+<li><a class="reference internal" href="#id1">选项</a></li>
+<li><a class="reference internal" href="#id2">示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="grdtrack.html"
+                          title="上一页">&larr; grdtrack</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="grdvector.html"
+                          title="下一页">&rarr; grdvector</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/grdtrend.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/grdtrend.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="grdvector.html" title="grdvector"
+             >下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="grdtrack.html" title="grdtrack"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

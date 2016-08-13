@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>gmtset &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="next" title="gmtsimplify" href="gmtsimplify.html" />
+    <link rel="prev" title="gmtselect" href="gmtselect.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="gmtsimplify.html" title="gmtsimplify"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="gmtselect.html" title="gmtselect"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="gmtset">
+<span id="index-0"></span><h1>gmtset<a class="headerlink" href="#gmtset" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/gmtset.html" title="(在 GMT v5.2.1)"><span>gmtset</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">修改单个或多个GMT参数的值</td>
+</tr>
+</tbody>
+</table>
+<p>该命令会修改当前目录下GMT配置文件 <code class="docutils literal"><span class="pre">gmt.conf</span></code> 中指定参数的值。若配置文件不存在，则新建一个。由于该目录会修改当前目录下的配置文件 <code class="docutils literal"><span class="pre">gmt.conf</span></code> ，因而该命令修改的参数将对接下来的命令一直有效，直到GMT参数再次被修改或覆盖。</p>
+<p>若想要参数修改仅对某个命令有效，应该在该命令上使用 <code class="docutils literal"><span class="pre">--&lt;PARAMETER&gt;=&lt;value&gt;</span></code> 语法。</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">&lt;PARAMETER&gt;=&lt;value&gt;</span></code></dt>
+<dd><p class="first">要修改的GMT参数名 <code class="docutils literal"><span class="pre">&lt;PARAMETER&gt;</span></code> 以及想要设置的值 <code class="docutils literal"><span class="pre">&lt;value&gt;</span></code></p>
+<p>参数名和值必须成对存在，二者可以用等号 <code class="docutils literal"><span class="pre">=</span></code> 连接，也可以省略等号。</p>
+<p>修改主标注字体Helvetica，字号为12p，设置网格交叉线的尺寸为0.2厘米:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt gmtset FONT_ANNOT_PRIMARY 12p,Helvetica MAP_GRID_CROSS_SIZE_PRIMARY 0.2c
+</pre></div>
+</div>
+<p>也可以用等号将参数名和参数值连接起来:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>gmt gmtset <span class="nv">FONT_ANNOT_PRIMARY</span><span class="o">=</span>12p,Helvetica <span class="nv">MAP_GRID_CROSS_SIZE_PRIMARY</span><span class="o">=</span>0.2c
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-C</span></code></dt>
+<dd>将当前目录下的GMT4配置文件 <code class="docutils literal"><span class="pre">.gmtdefaults4</span></code> 转换为GMT5所使用的 <code class="docutils literal"><span class="pre">gmt.conf</span></code> 文件，并保留GMT4配置文件。</dd>
+<dt><code class="docutils literal"><span class="pre">-D[s|u]</span></code></dt>
+<dd><p class="first">默认在当前目录下的配置文件的基础上修改参数值，该选项使得在系统配置文件的基础上修改参数值。</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">-D</span></code> ：使用GMT编译过程中指定的默认参数文件，即 <code class="docutils literal"><span class="pre">${GMT}/share/conf/gmt.conf</span></code></li>
+<li><code class="docutils literal"><span class="pre">-Du</span></code> ：使用US单位制下的默认参数文件，即 <code class="docutils literal"><span class="pre">${GMT}/share/conf/gmt_US.conf</span></code></li>
+<li><code class="docutils literal"><span class="pre">-Ds</span></code> ：使用SI单位制下的默认参数文件，即 <code class="docutils literal"><span class="pre">${GMT}/share/conf/gmt_SI.conf</span></code></li>
+</ol>
+<p>使用 <code class="docutils literal"><span class="pre">-D</span></code> 选项而不指定参数名则会在当前目录下生成一个系统配置文件:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>gmt <span class="nb">set</span> -D
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-G&lt;defaultsfile&gt;</span></code></dt>
+<dd>指定要读取并修改的配置文件， <code class="docutils literal"><span class="pre">&lt;defaultsfile&gt;</span></code> 为配置文件的文件名</dd>
+<dt><code class="docutils literal"><span class="pre">-[BJRXxYycp]&lt;value&gt;</span></code></dt>
+<dd><p class="first">修改GMT命令历史文件 <code class="docutils literal"><span class="pre">gmt.history</span></code> 中的值。该选项用于在不执行其他绘图命令的前提下强行修改命令历史，但用处不大。</p>
+<p>例如:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ gmt psbasemap -JX10c/5c -B0/10/0/10 -B1 &gt; test.ps
+$ gmt gmtset -JX5c/5c
+</pre></div>
+</div>
+<p class="last">该命令会将GMT命令历史文件 <code class="docutils literal"><span class="pre">gmt.history</span></code> 中 <code class="docutils literal"><span class="pre">-J</span></code> 选项的值从 <code class="docutils literal"><span class="pre">X10c/5c</span></code> 改成 <code class="docutils literal"><span class="pre">X5c/5c</span></code> 。</p>
+</dd>
+</dl>
+<div class="section" id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">错误消息:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmtset: Warning: parameter xxxx is deprecated. Use xxx instead.
+</pre></div>
+</div>
+<p>出现该错误是因为GMT5重命名了几乎所有参数，而当前命令使用的是GMT4的老参数名。解决办法在警告信息中已经说了，使用GMT5的新参数名即可。</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="gmtset" data-title="gmtset" data-url="http://modules.gmt-china.org/gmtset.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">gmtset</a><ul>
+<li><a class="reference internal" href="#faq">FAQ</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="gmtselect.html"
+                          title="上一页">&larr; gmtselect</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="gmtsimplify.html"
+                          title="下一页">&rarr; gmtsimplify</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/gmtset.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/gmtset.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="gmtsimplify.html" title="gmtsimplify"
+             >下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="gmtselect.html" title="gmtselect"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

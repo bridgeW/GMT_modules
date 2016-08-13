@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>psrose &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="next" title="psscale" href="psscale.html" />
+    <link rel="prev" title="pspolar" href="pspolar.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="psscale.html" title="psscale"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="pspolar.html" title="pspolar"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="psrose">
+<span id="index-0"></span><h1>psrose<a class="headerlink" href="#psrose" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/psrose.html" title="(在 GMT v5.2.1)"><span>psrose</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">绘制极坐标下的直方图（sector图、rose图或windrose图）</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">&lt;table&gt;</span></code></dt>
+<dd><p class="first">输入文件，数据格式为 <code class="docutils literal"><span class="pre">length</span>&nbsp; <span class="pre">azimuth</span></code></p>
+<p class="last">若输入文件中只有azimuth一列数据，则此时需要使用 <code class="docutils literal"><span class="pre">-i</span></code> 选项，此时所有的长度都默认为单位长度。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-A[r]&lt;sector_width&gt;</span></code></dt>
+<dd><p class="first">指定扇页宽度，单位为度</p>
+<ol class="last arabic simple">
+<li>默认扇页宽度为0，即windrose图</li>
+<li>若扇页宽度不为0，则表示绘制sector图</li>
+<li>若扇页宽度不为0，则使用了 <code class="docutils literal"><span class="pre">r</span></code> ，则表示绘制rose图</li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-B</span></code></dt>
+<dd>见 <code class="docutils literal"><span class="pre">-B</span></code> 选项的介绍。此处，X表示径向距离，Y表示方位角。Y轴的标签是图片的标题。</dd>
+<dt><code class="docutils literal"><span class="pre">-C[mode_file]</span></code></dt>
+<dd>绘制矢量以显示 <code class="docutils literal"><span class="pre">&lt;mode_file&gt;</span></code> 中指定的主方向。若未指定 <code class="docutils literal"><span class="pre">&lt;mode_file&gt;</span></code> 则计算并绘制平均方向。</dd>
+<dt><code class="docutils literal"><span class="pre">-D</span></code></dt>
+<dd>对扇页对偏移，使得其位于每个间隔的中间，即第一个扇页的中心在0度处</dd>
+<dt><code class="docutils literal"><span class="pre">-F</span></code></dt>
+<dd>不绘制scale length bar，默认会在右下角绘制</dd>
+<dt><code class="docutils literal"><span class="pre">-G&lt;fill&gt;</span></code></dt>
+<dd>绘制扇页的填充色</dd>
+<dt><code class="docutils literal"><span class="pre">-I</span></code></dt>
+<dd>不绘制图形，计算 <code class="docutils literal"><span class="pre">-R</span></code> 选项所需要的参数</dd>
+<dt><code class="docutils literal"><span class="pre">-L[&lt;wlabel&gt;/&lt;elabel&gt;/&lt;slabel&gt;/&lt;nlabel&gt;]</span></code></dt>
+<dd><p class="first">指定0、90、180、270度处的标签。</p>
+<ol class="last arabic simple">
+<li>对于full-circle图而言，默认值为 <code class="docutils literal"><span class="pre">WEST/EAST/SOUTH/NORTH</span></code></li>
+<li>对于half-circle图而言，默认值为 <code class="docutils literal"><span class="pre">90W/90E/-/0</span></code> ，其中 <code class="docutils literal"><span class="pre">-</span></code> 表示不显示标签</li>
+<li>只使用 <code class="docutils literal"><span class="pre">-L</span></code> 但无其他参数表示不显示所有标签</li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-M&lt;parameters&gt;</span></code></dt>
+<dd>与 <code class="docutils literal"><span class="pre">-C</span></code> 选项一起使用以修改矢量的属性。具体数据见 <a class="reference external" href="http://docs.gmt-china.org/vectors.html" title="(在 GMT v5.2.1)"><span>vectors</span></a> 一节</dd>
+<dt><code class="docutils literal"><span class="pre">-R&lt;r0&gt;/&lt;r1&gt;/&lt;az_0&gt;/&lt;az_1&gt;</span></code></dt>
+<dd>指定绘图的半径和方位角范围。</dd>
+<dt><code class="docutils literal"><span class="pre">-S[n]&lt;radial_scale&gt;</span></code></dt>
+<dd><p class="first">指定圆的半径。</p>
+<p class="last"><code class="docutils literal"><span class="pre">-Sn</span></code> 会将输入的半径归一化到0到1。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-T</span></code></dt>
+<dd>Specifies that the input data is orientation data (has a 180 degree
+ambiguity) instead of true 0-360 degree directions [Default].</dd>
+<dt><code class="docutils literal"><span class="pre">-W[v]&lt;pen&gt;</span></code></dt>
+<dd><p class="first">设置扇区边框的画笔属性。</p>
+<p class="last"><code class="docutils literal"><span class="pre">-Wv&lt;pen&gt;</span></code> 可用于设置绘制矢量时所需的画笔属性。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-Z&lt;scale&gt;</span></code></dt>
+<dd><p class="first">将数据的半径乘以 <code class="docutils literal"><span class="pre">&lt;scale&gt;</span></code></p>
+<p class="last">比如 <code class="docutils literal"><span class="pre">-Z0.001</span></code> 会将数据的单位从m变成km。若不考虑半径，可以通过 <code class="docutils literal"><span class="pre">-Zu</span></code> 将所有的半径设置为单位长度。</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="psrose" data-title="psrose" data-url="http://modules.gmt-china.org/psrose.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">psrose</a><ul>
+<li><a class="reference internal" href="#id1">选项</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="pspolar.html"
+                          title="上一页">&larr; pspolar</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="psscale.html"
+                          title="下一页">&rarr; psscale</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/psrose.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/psrose.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="psscale.html" title="psscale"
+             >下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="pspolar.html" title="pspolar"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

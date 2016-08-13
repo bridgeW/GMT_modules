@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>psscale &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="next" title="pssegy" href="pssegy.html" />
+    <link rel="prev" title="psrose" href="psrose.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="pssegy.html" title="pssegy"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="psrose.html" title="psrose"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="psscale">
+<span id="index-0"></span><h1>psscale<a class="headerlink" href="#psscale" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/psscale.html" title="(在 GMT v5.2.1)"><span>psscale</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">在地图上绘制灰色或彩色色条（colorbar）</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">-B[p|s]&lt;parameters&gt;</span></code></dt>
+<dd><p class="first">设置colorbar的标注、刻度和网格线间隔。</p>
+<p>在不使用 <code class="docutils literal"><span class="pre">-B</span></code> 选项，或者不指定标注间隔时，默认会根据CPT文件中每一行的内容对colorbar进行标注，具体见 <a class="reference external" href="http://docs.gmt-china.org/cpt.html" title="(在 GMT v5.2.1)"><span>cpt</span></a> 。</p>
+<p class="last">默认情况下，对于水平colorbar而言，X轴的标签会放在colorbar的下边，Y轴标签放在colorbar的右边；对于垂直colorbar而言，X轴的标签放在colorbar的右边，Y轴标签放在colorbar的上边。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-C</span></code></dt>
+<dd>要绘制的CPT文件。</dd>
+<dt><code class="docutils literal"><span class="pre">-D[g|j|J|n|x]&lt;refpoint&gt;+w&lt;length&gt;/&lt;width&gt;[+e[b|f][&lt;length&gt;]][+h][+j&lt;justify&gt;][+m[a|c|l|u]][+n[&lt;txt&gt;]][+o&lt;dx&gt;[/&lt;dy&gt;]]</span></code></dt>
+<dd><p class="first">指定色标的尺寸和位置。</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal"><span class="pre">[g|j|J|n|x]&lt;refpoint&gt;</span></code> 指定底图上的参考量，见 <a class="reference external" href="http://docs.gmt-china.org/embellishments.html" title="(在 GMT v5.2.1)"><span>embellishments</span></a> 一节</li>
+<li><code class="docutils literal"><span class="pre">+j&lt;justify&gt;</span></code> 指定色标上的锚点，默认锚点是 <code class="docutils literal"><span class="pre">BL</span></code> ，见 <a class="reference external" href="http://docs.gmt-china.org/embellishments.html" title="(在 GMT v5.2.1)"><span>embellishments</span></a> 一节</li>
+<li><code class="docutils literal"><span class="pre">+o&lt;dx&gt;[/&lt;dy&gt;]</span></code> 指定参考点的额外偏移量，见 <a class="reference external" href="http://docs.gmt-china.org/embellishments.html" title="(在 GMT v5.2.1)"><span>embellishments</span></a></li>
+<li><code class="docutils literal"><span class="pre">+w&lt;length&gt;/&lt;width&gt;</span></code> 指定色标的长度和宽度，若长度为负值则会反转色标</li>
+<li><code class="docutils literal"><span class="pre">+h</span></code> 绘制水平色标，默认为垂直色标</li>
+<li><code class="docutils literal"><span class="pre">+e</span></code> 选项为前景色和背景色加一个三角形， <code class="docutils literal"><span class="pre">+ef</span></code> 表示只加前景色三角形， <code class="docutils literal"><span class="pre">+eb</span></code> 表示只加背景色三角形， <code class="docutils literal"><span class="pre">&lt;length&gt;</span></code> 是三角的高度，默认为色标宽度的一半</li>
+<li><code class="docutils literal"><span class="pre">+m[a|c|l|u]</span></code> 将标注、标签和单位放在色标的另一边， <code class="docutils literal"><span class="pre">a</span></code> 代表标注， <code class="docutils literal"><span class="pre">l</span></code> 代表标签， <code class="docutils literal"><span class="pre">u</span></code> 代表单位。 <code class="docutils literal"><span class="pre">c</span></code> 表示将标签以单列字符垂直打印。</li>
+<li><code class="docutils literal"><span class="pre">+n&lt;text&gt;</span></code> 在色标开始处绘制一个矩形，并用NaN的颜色填充</li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-F</span></code></dt>
+<dd>为colorbar加上背景边框，见 <a class="reference external" href="http://docs.gmt-china.org/embellishments.html" title="(在 GMT v5.2.1)"><span>embellishments</span></a> 一节</dd>
+<dt><code class="docutils literal"><span class="pre">-G&lt;zlow&gt;/&lt;zhigh&gt;</span></code></dt>
+<dd>绘图前先对CPT文件做截断，使得其只绘制 <code class="docutils literal"><span class="pre">&lt;zlow&gt;</span></code> 到 <code class="docutils literal"><span class="pre">&lt;zhigh&gt;</span></code> 之间的部分。若其中某个值等于NaN，则不对CPT的那一端做处理。</dd>
+<dt><code class="docutils literal"><span class="pre">-I[&lt;max_intens&gt;|&lt;low_i&gt;/&lt;high_i&gt;]</span></code></dt>
+<dd><p class="first">为色标加上光照效果</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal"><span class="pre">-I&lt;max_intens&gt;</span></code> 光照强度为 <code class="docutils literal"><span class="pre">[-&lt;max_intens&gt;,</span> <span class="pre">+&lt;max_intens]</span></code> ，默认值为1</li>
+<li><code class="docutils literal"><span class="pre">-I&lt;low_i&gt;/&lt;high_i&gt;</span></code> 指定非对称的光照强度范围</li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-L[i][&lt;gap&gt;]</span></code></dt>
+<dd>生成等大小的color rectangels，见官方文档</dd>
+<dt><code class="docutils literal"><span class="pre">-M</span></code></dt>
+<dd>使用YIQ变换将色标变成单调灰度色标</dd>
+<dt><code class="docutils literal"><span class="pre">-N[p|&lt;dpi&gt;]</span></code></dt>
+<dd>见官方文档</dd>
+<dt><code class="docutils literal"><span class="pre">-Q</span></code></dt>
+<dd><p class="first">使用对数坐标，刻度表示为10的次幂</p>
+<p class="last">CPT文件中所有的Z值都会被转换成 p = log10(z)，其中整数的p会以10^p的格式标注。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-S</span></code></dt>
+<dd>去除不同色块之间的黑色网格线</dd>
+<dt><code class="docutils literal"><span class="pre">-Z&lt;zfile&gt;</span></code></dt>
+<dd>见官方文档</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt makecpt -T-200/1000/100 -Crainbow &gt; t.cpt
+gmt psscale -Ct.cpt -Dx8c/1c+w12c/0.5c+jTC+h -Bxaf+l<span class="s2">&quot;topography&quot;</span> -By+lkm &gt; map.ps
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="psscale" data-title="psscale" data-url="http://modules.gmt-china.org/psscale.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">psscale</a><ul>
+<li><a class="reference internal" href="#id1">选项</a></li>
+<li><a class="reference internal" href="#id2">示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="psrose.html"
+                          title="上一页">&larr; psrose</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="pssegy.html"
+                          title="下一页">&rarr; pssegy</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/psscale.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/psscale.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="pssegy.html" title="pssegy"
+             >下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="psrose.html" title="psrose"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

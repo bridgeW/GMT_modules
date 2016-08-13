@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>filter1d &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="next" title="fitcircle" href="fitcircle.html" />
+    <link rel="prev" title="dimfilter" href="dimfilter.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="fitcircle.html" title="fitcircle"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="dimfilter.html" title="dimfilter"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="filter1d">
+<span id="index-0"></span><h1>filter1d<a class="headerlink" href="#filter1d" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/filter1d.html" title="(在 GMT v5.2.1)"><span>filter1d</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">对1D表数据做时间域滤波</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">-D&lt;increment&gt;</span></code></dt>
+<dd>当输入的时间序列是不等间隔采样时，需要使用该选项。 <code class="docutils literal"><span class="pre">&lt;increment&gt;</span></code> 为输出数据的分辨率，所有横坐标（时间）都会被rounded off到 <code class="docutils literal"><span class="pre">&lt;increment&gt;</span></code> 的整数倍。当然，也可以使用 <a class="reference internal" href="sample1d.html"><span class="doc">sample1d</span></a> 对时间序列做重采样。</dd>
+<dt><code class="docutils literal"><span class="pre">-E</span></code></dt>
+<dd>输出时间序列的首尾端数据。默认情况下，首尾两端都会丢失半滤波器宽度的数据点</dd>
+<dt><code class="docutils literal"><span class="pre">-F&lt;type&gt;&lt;width&gt;[&lt;mode&gt;]</span></code></dt>
+<dd><p class="first">设置滤波器类型</p>
+<p>滤波器分为两大类，卷积滤波器和非卷积滤波器。 <code class="docutils literal"><span class="pre">&lt;type&gt;</span></code> 用于指定滤波器类型， <code class="docutils literal"><span class="pre">&lt;width&gt;</span></code> 指定滤波器宽度（单位与时间数据相同）。</p>
+<p>对于卷积滤波器， <code class="docutils literal"><span class="pre">&lt;type&gt;</span></code> 可以取：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">b</span></code> Boxcar: All weights are equal</li>
+<li><code class="docutils literal"><span class="pre">c</span></code> Cosine Arch: Weights follow a cosine arch curve</li>
+<li><code class="docutils literal"><span class="pre">g</span></code> Gaussian: Weights are given by the Gaussian function</li>
+<li><code class="docutils literal"><span class="pre">f</span></code> Custom: Instead of <em>width</em> give name of a one-column file with your own weight coefficients.</li>
+</ul>
+<p>对于非卷积滤波器， <code class="docutils literal"><span class="pre">&lt;type&gt;</span></code> 可以取：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">m</span></code> Median: Returns median value</li>
+<li><code class="docutils literal"><span class="pre">p</span></code> Maximum likelihood probability (a mode estimator): Return modal value. If more than one mode is found we return their average value. Append - or + to the filter width if you rather want to return the smallest or largest of the modal values.</li>
+<li><code class="docutils literal"><span class="pre">l</span></code> Lower: Return the minimum of all values.</li>
+<li><code class="docutils literal"><span class="pre">L</span></code> Lower: Return minimum of all positive values only.</li>
+<li><code class="docutils literal"><span class="pre">u</span></code> Upper: Return maximum of all values.</li>
+<li><code class="docutils literal"><span class="pre">U</span></code> Upper: Return maximum or all negative values only.</li>
+</ul>
+<p>大写的 <code class="docutils literal"><span class="pre">B|C|G|M|P|F</span></code> will use robust filter versions, i.e., replace outliers (2.5 L1 scale off median) with median during filtering.</p>
+<p class="last">In the case of <strong>L</strong>|<strong>U</strong> it is possible that no data passes
+the initial sign test; in that case the filter will return 0.0.</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-I&lt;ignore_val&gt;</span></code></dt>
+<dd>若输出数据等于 <code class="docutils literal"><span class="pre">&lt;ignore_val&gt;</span></code> ，则设置其值为NaN</dd>
+<dt><code class="docutils literal"><span class="pre">-L&lt;lack_width&gt;</span></code></dt>
+<dd>检查数据间断。若输入数据存在超过 <code class="docutils literal"><span class="pre">&lt;lack_width&gt;</span></code> 的间断，则该数据点不输出值。</dd>
+<dt><code class="docutils literal"><span class="pre">-N&lt;t_col&gt;</span></code></dt>
+<dd>指定哪一列数据包含自变量（即时间）。默认值为0，即第一列。</dd>
+<dt><code class="docutils literal"><span class="pre">-Q&lt;q_factor&gt;</span></code></dt>
+<dd><p class="first">检查输出值的质量因子。</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;q_factor&gt;</span></code> 的取值为0到1，若某点的卷积的平均权重小于 <code class="docutils literal"><span class="pre">&lt;q_factor&gt;</span></code> ，则该点的输出会被压制。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-S&lt;symmetry_factor&gt;</span></code></dt>
+<dd><p class="first">检查数据关于时间窗中心的对称性。</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;symmetry_factor&gt;</span></code> 的取值范围为0到1。若 ( (abs(n_left - n_right)) / (n_left + n_right) ) &gt; factor，则该点不输出值。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-T&lt;t_min&gt;/&lt;t_max&gt;/&lt;t_inc&gt;[+]</span></code></dt>
+<dd>见官方文档</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt filter1d cruise.gmtd -T0/1.0e5/2000 -FG10000 -N3 -V &gt; filtered_cruise.gmtd
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt filter1d v3312.dt -FM50 -T0/100000/25 -L10 -S0.3 &gt; v3312_filt.dt
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="filter1d" data-title="filter1d" data-url="http://modules.gmt-china.org/filter1d.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">filter1d</a><ul>
+<li><a class="reference internal" href="#id1">选项</a></li>
+<li><a class="reference internal" href="#id2">示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="dimfilter.html"
+                          title="上一页">&larr; dimfilter</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="fitcircle.html"
+                          title="下一页">&rarr; fitcircle</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/filter1d.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/filter1d.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="fitcircle.html" title="fitcircle"
+             >下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="dimfilter.html" title="dimfilter"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

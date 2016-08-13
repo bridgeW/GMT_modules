@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>grdvolume &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="next" title="greenspline" href="greenspline.html" />
+    <link rel="prev" title="grdview" href="grdview.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="greenspline.html" title="greenspline"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="grdview.html" title="grdview"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="grdvolume">
+<span id="index-0"></span><h1>grdvolume<a class="headerlink" href="#grdvolume" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/grdvolume.html" title="(在 GMT v5.2.1)"><span>grdvolume</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">计算网格数据中某个等值线所包围的表面积和体积</td>
+</tr>
+</tbody>
+</table>
+<p>该命令读取一个2D网格文件，通过指定某条等值线确定某个Z值平面，并计算由该等值线约束的区域网格表面积、网格表面到该平面所包围的体积，以及最大平均高度（体积/面积）。也可以指定一系列等值线，此时该命令会分别计算每个等值线范围内的表面积和体积。</p>
+<div class="section" id="id1">
+<h2>选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">&lt;grdfile&gt;</span></code></dt>
+<dd>输入的2D网格文件名</dd>
+<dt><code class="docutils literal"><span class="pre">-C</span></code></dt>
+<dd><p class="first">指定等值线（Z值平面）。</p>
+<p>该选项有三种不同的语法：</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">-C&lt;cval&gt;</span></code> 指定单个等值线</li>
+<li><code class="docutils literal"><span class="pre">-C&lt;low&gt;/&lt;high&gt;/&lt;delta&gt;</span></code> 指定多条等间距的等值线</li>
+<li><code class="docutils literal"><span class="pre">-Cr&lt;low&gt;/&lt;high&gt;</span></code> 计算两个Z值平面之间的体积</li>
+</ul>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-L&lt;base&gt;</span></code></dt>
+<dd>同时也计算从等值线到 <code class="docutils literal"><span class="pre">&lt;base&gt;</span></code> 的体积</dd>
+<dt><code class="docutils literal"><span class="pre">-S[&lt;unit&gt;]</span></code></dt>
+<dd>将弧度转换为Flat Earth距离，默认为笛卡尔坐标</dd>
+</dl>
+<p><code class="docutils literal"><span class="pre">-T[c|h]</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">-Th</span></code> 确定最大平均高度所对应的等值线</li>
+<li><code class="docutils literal"><span class="pre">-Tc</span></code> 确定最大曲率（高度vs等值线值）所对应的等值线</li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">-Z&lt;fact&gt;[/&lt;shift&gt;]</span></code></dt>
+<dd>将数据减去 <code class="docutils literal"><span class="pre">&lt;shift&gt;</span></code> 再乘以比例因子 <code class="docutils literal"><span class="pre">&lt;fact&gt;</span></code> 。</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>计算网格表面之下的体积，网格数据的单位是km，结果的单位为km^3:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt grdvolume hawaii_topo.nc -Sk
+</pre></div>
+</div>
+<p>计算网格表明与等值线Z=250之间的体积:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt grdvolume peaks.nc -Sk -C250
+</pre></div>
+</div>
+<p>在等值线100到300范围内，以10为间隔，计算所有等值线所约束的表面积和体积:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt grdvolume peaks.nc -Sk -C100/300/10 &gt; results.d
+</pre></div>
+</div>
+<p>在等值线100到300范围内，以10为间隔，搜索最大平均高度（即体积与表面积的比）所对应的等值线值:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt grdvolume peaks.nc -Sk -C100/300/10 -Th &gt; results.d
+</pre></div>
+</div>
+<p>计算湖内从表面到300米深度范围内水的体积:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt grdvolume lake.nc -Cr-300/0
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="grdvolume" data-title="grdvolume" data-url="http://modules.gmt-china.org/grdvolume.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">grdvolume</a><ul>
+<li><a class="reference internal" href="#id1">选项</a></li>
+<li><a class="reference internal" href="#id2">示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="grdview.html"
+                          title="上一页">&larr; grdview</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="greenspline.html"
+                          title="下一页">&rarr; greenspline</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/grdvolume.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/grdvolume.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="greenspline.html" title="greenspline"
+             >下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="grdview.html" title="grdview"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

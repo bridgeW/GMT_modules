@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>GMT 5.2.1模块列表 &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="#" />
+    <link rel="next" title="backtracker" href="backtracker.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="backtracker.html" title="backtracker"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+    <li><a href="#">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="gmt-5-2-1">
+<h1>GMT 5.2.1模块列表<a class="headerlink" href="#gmt-5-2-1" title="永久链接至标题">¶</a></h1>
+<p>欢迎来到 GMT (Generic Mapping Tools) 的世界。</p>
+<p>本项目是GMT中文社区维护的GMT模块手册。据不完全统计，GMT中约有130个模块，本文档中将介绍其中常用的模块。</p>
+<p><strong>相关链接</strong></p>
+<ul class="simple">
+<li>社区主页： <a class="reference external" href="http://gmt-china.org">http://gmt-china.org</a></li>
+<li>项目主页： <a class="reference external" href="http://modules.gmt-china.org">http://modules.gmt-china.org</a></li>
+<li>项目源码： <a class="reference external" href="https://github.com/gmt-china/GMT_modules">https://github.com/gmt-china/GMT_modules</a></li>
+<li>GMT中文参考手册： <a class="reference external" href="http://docs.gmt-china.org">http://docs.gmt-china.org</a></li>
+</ul>
+<p><strong>文档约定</strong></p>
+<p>所有的模块，在介绍其用法时，都尽量遵循如下约定：</p>
+<ul class="simple">
+<li>不介绍GMT通用选项，只介绍模块专有的选项</li>
+<li>中括号 <code class="docutils literal"><span class="pre">[</span> <span class="pre">]</span></code> 括起来的项表明该项是可选项</li>
+<li>尖括号 <code class="docutils literal"><span class="pre">&lt;</span> <span class="pre">&gt;</span></code> 括起来的项表明实际使用时需要用具体的数值替代</li>
+<li>用 <code class="docutils literal"><span class="pre">|</span></code> 分隔的项表明各项之间是可选的</li>
+<li>用 <code class="docutils literal"><span class="pre">...</span></code> 表示省略，即当前命令仅用于演示某些功能，命令本身是不完整的，无法直接执行</li>
+<li><code class="docutils literal"><span class="pre">#</span></code> 之后的内容为注释</li>
+</ul>
+<p>比如， <code class="docutils literal"><span class="pre">-A[a|c|d]&lt;scale&gt;[/&lt;dist&gt;]</span></code> ：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&lt;scale&gt;</span></code> 是必须的，使用时需要用具体数字代替</li>
+<li><code class="docutils literal"><span class="pre">[a|c|d]</span></code> 是可选的，实际使用时只能使用 <code class="docutils literal"><span class="pre">a</span></code> 或 <code class="docutils literal"><span class="pre">c</span></code> 或 <code class="docutils literal"><span class="pre">d</span></code></li>
+<li><code class="docutils literal"><span class="pre">[/&lt;dist&gt;]</span></code> 是可选的，使用时需要用具体数字代替</li>
+</ul>
+<p><strong>按功能分类</strong></p>
+<p>下面将GMT中的模块按照功能分类，并用一句话简述其功能。</p>
+<ul class="simple">
+<li>主程序/脚本<ul>
+<li><a class="reference internal" href="gmt.html"><span class="doc">gmt</span></a> ：GMT主程序</li>
+<li><a class="reference internal" href="isogmt.html"><span class="doc">isogmt</span></a> ：在“隔离模式”下运行GMT命令或脚本</li>
+<li><a class="reference internal" href="gmt5syntax.html"><span class="doc">gmt5syntax</span></a> ：将旧的GMT脚本修改成新的 <code class="docutils literal"><span class="pre">gmt</span> <span class="pre">&lt;module&gt;</span></code> 语法</li>
+</ul>
+</li>
+<li>绘制1D和2D数据<ul>
+<li><a class="reference internal" href="psbasemap.html"><span class="doc">psbasemap</span></a> ：绘制底图</li>
+<li><a class="reference internal" href="pscoast.html"><span class="doc">pscoast</span></a> ：在地图上绘制海岸线、河流、国界线</li>
+<li><a class="reference internal" href="psxy.html"><span class="doc">psxy</span></a> ：在图上绘制线段、多边形和符号</li>
+<li><a class="reference internal" href="pstext.html"><span class="doc">pstext</span></a> ：在图上写文本</li>
+<li><a class="reference internal" href="psscale.html"><span class="doc">psscale</span></a> ：在图上绘制灰色或彩色色标</li>
+<li><a class="reference internal" href="psclip.html"><span class="doc">psclip</span></a> ：打开或关闭多边形裁剪路径</li>
+<li><a class="reference internal" href="psimage.html"><span class="doc">psimage</span></a> ：将图片或EPS文件放在地图上</li>
+<li><a class="reference internal" href="pslegend.html"><span class="doc">pslegend</span></a> ：绘制图例</li>
+<li><a class="reference internal" href="pshistogram.html"><span class="doc">pshistogram</span></a> ：统计并绘制直方图</li>
+<li><a class="reference internal" href="psrose.html"><span class="doc">psrose</span></a> ：绘制极坐标下的直方图（sector图、rose图或windrose图）</li>
+<li><a class="reference internal" href="psmeca.html"><span class="doc">psmeca</span></a> ：在地图上绘制震源机制解</li>
+<li><a class="reference internal" href="pspolar.html"><span class="doc">pspolar</span></a> ：在震源球上绘制台站极性</li>
+<li><a class="reference internal" href="psvelo.html"><span class="doc">psvelo</span></a> ：在地图上绘制速度矢量、十字线、楔形图</li>
+<li><a class="reference internal" href="pscoupe.html"><span class="doc">pscoupe</span></a> ：绘制震源机制解的剖面图</li>
+<li><a class="reference internal" href="grdvector.html"><span class="doc">grdvector</span></a> ：根据两个网格文件绘制矢量场</li>
+<li><a class="reference internal" href="grdimage.html"><span class="doc">grdimage</span></a> ：在图上绘制网格数据</li>
+<li><a class="reference internal" href="gmtlogo.html"><span class="doc">gmtlogo</span></a> ：在图上绘制GMT图形logo</li>
+</ul>
+</li>
+<li>信息提取<ul>
+<li><a class="reference internal" href="gmtget.html"><span class="doc">gmtget</span></a> ：列出单个或多个GMT参数的当前值</li>
+<li><a class="reference internal" href="gmtset.html"><span class="doc">gmtset</span></a> ：修改单个或多个GMT参数的值</li>
+<li><a class="reference internal" href="gmtdefaults.html"><span class="doc">gmtdefaults</span></a> ：列出所有GMT参数的当前值</li>
+<li><a class="reference internal" href="gmtinfo.html"><span class="doc">gmtinfo</span></a> ：从表数据中提取信息</li>
+<li><a class="reference internal" href="grdinfo.html"><span class="doc">grdinfo</span></a> ：从网格文件中提取基本信息</li>
+<li><a class="reference internal" href="gmtselect.html"><span class="doc">gmtselect</span></a> ：根据多个准则筛选数据</li>
+<li><a class="reference internal" href="gmtwhich.html"><span class="doc">gmtwhich</span></a> ：返回指定文件的完整路径</li>
+<li><a class="reference internal" href="fitcircle.html"><span class="doc">fitcircle</span></a> ：拟合球面上数据点的平均位置及圆弧</li>
+</ul>
+</li>
+<li>1D数据处理<ul>
+<li><a class="reference internal" href="filter1d.html"><span class="doc">filter1d</span></a> ：对1D表数据做时间域滤波</li>
+<li><a class="reference internal" href="gmtsimplify.html"><span class="doc">gmtsimplify</span></a> ：使用Douglas-Peucker算法对线段做简化</li>
+<li><a class="reference internal" href="gmtconnect.html"><span class="doc">gmtconnect</span></a> ：将端点接近的线段连接起来</li>
+<li><a class="reference internal" href="sample1d.html"><span class="doc">sample1d</span></a> ：对1D表数据进行重采样</li>
+<li><a class="reference internal" href="project.html"><span class="doc">project</span></a> ：将数据点投影到线或大圆路径上，生成测线，坐标转换</li>
+</ul>
+</li>
+<li>2D数据处理<ul>
+<li><a class="reference internal" href="grdedit.html"><span class="doc">grdedit</span></a> ：修改网格文件的头段或内容</li>
+<li><a class="reference internal" href="grdcut.html"><span class="doc">grdcut</span></a> ：从一个网格文件中裁剪出一个子区域</li>
+<li><a class="reference internal" href="grdblend.html"><span class="doc">grdblend</span></a> ：将多个部分重叠的网格文件合并成一个网格文件</li>
+<li><a class="reference internal" href="grdpaste.html"><span class="doc">grdpaste</span></a> ：将两个网格沿着其共同边界拼接成一个文件</li>
+<li><a class="reference internal" href="grdraster.html"><span class="doc">grdraster</span></a> ：从二进制数据中提取子区域并保存为GMT网格文件</li>
+<li><a class="reference internal" href="grdclip.html"><span class="doc">grdclip</span></a> ：对网格文件的Z值做裁剪</li>
+<li><a class="reference internal" href="grdlandmask.html"><span class="doc">grdlandmask</span></a> ：根据海岸线数据创建陆地-海洋的mask网格文件</li>
+<li><a class="reference internal" href="grdtrend.html"><span class="doc">grdtrend</span></a> ：拟合网格的趋势面并计算残差</li>
+<li><a class="reference internal" href="grdsample.html"><span class="doc">grdsample</span></a> ：对网格文件做重采样</li>
+<li><a class="reference internal" href="grdvolume.html"><span class="doc">grdvolume</span></a> ：计算网格数据中某个等值线所包围的表面积和体积</li>
+<li><a class="reference internal" href="grdproject.html"><span class="doc">grdproject</span></a> ：对网格数据做地图变换和逆变换</li>
+<li><a class="reference internal" href="grdmask.html"><span class="doc">grdmask</span></a> ：根据多边形数据或点数据创建mask网格文件</li>
+<li><a class="reference internal" href="grdconvert.html"><span class="doc">grdconvert</span></a> ：在不同的网格格式之间互相转换</li>
+</ul>
+</li>
+<li>格式转换<ul>
+<li><a class="reference internal" href="kml2gmt.html"><span class="doc">kml2gmt</span></a> ：将Google Earth的KML文件转换为GMT表数据</li>
+<li><a class="reference internal" href="psconvert.html"><span class="doc">psconvert</span></a> ：将GMT生成的PS文件转换为其他图片格式</li>
+<li><a class="reference internal" href="grd2xyz.html"><span class="doc">grd2xyz</span></a> ：将网格文件转换成表数据</li>
+<li><a class="reference internal" href="xyz2grd.html"><span class="doc">xyz2grd</span></a> ：将XYZ数据或Z数据转换成网格文件</li>
+<li><a class="reference internal" href="grd2rgb.html"><span class="doc">grd2rgb</span></a> ：将网格文件、原始RGB文件、SUN光栅文件转换成R/G/B三个网格文件</li>
+</ul>
+</li>
+<li>计划整理的命令<ol class="arabic">
+<li><a class="reference internal" href="grdtrack.html"><span class="doc">grdtrack</span></a></li>
+<li><a class="reference internal" href="makecpt.html"><span class="doc">makecpt</span></a></li>
+<li><a class="reference internal" href="grd2cpt.html"><span class="doc">grd2cpt</span></a></li>
+<li><a class="reference internal" href="gmtconvert.html"><span class="doc">gmtconvert</span></a></li>
+<li><a class="reference internal" href="trend1d.html"><span class="doc">trend1d</span></a></li>
+<li><a class="reference internal" href="grdcontour.html"><span class="doc">grdcontour</span></a></li>
+<li><a class="reference internal" href="psmask.html"><span class="doc">psmask</span></a></li>
+<li><a class="reference internal" href="grdview.html"><span class="doc">grdview</span></a></li>
+<li><a class="reference internal" href="grdgradient.html"><span class="doc">grdgradient</span></a></li>
+<li><a class="reference internal" href="grdmath.html"><span class="doc">grdmath</span></a></li>
+<li><a class="reference internal" href="gmt2kml.html"><span class="doc">gmt2kml</span></a></li>
+<li><a class="reference internal" href="trend2d.html"><span class="doc">trend2d</span></a></li>
+<li><a class="reference internal" href="mapproject.html"><span class="doc">mapproject</span></a></li>
+<li><a class="reference internal" href="surface.html"><span class="doc">surface</span></a></li>
+<li><a class="reference internal" href="grdfilter.html"><span class="doc">grdfilter</span></a></li>
+<li><a class="reference internal" href="grdfft.html"><span class="doc">grdfft</span></a></li>
+<li><a class="reference internal" href="splitxyz.html"><span class="doc">splitxyz</span></a></li>
+</ol>
+</li>
+<li>没有整理计划的命令<ol class="arabic">
+<li><a class="reference internal" href="blockmean.html"><span class="doc">blockmean</span></a></li>
+<li><a class="reference internal" href="blockmedian.html"><span class="doc">blockmedian</span></a></li>
+<li><a class="reference internal" href="blockmode.html"><span class="doc">blockmode</span></a></li>
+<li><a class="reference internal" href="psxyz.html"><span class="doc">psxyz</span></a></li>
+<li><a class="reference internal" href="pscontour.html"><span class="doc">pscontour</span></a></li>
+<li><a class="reference internal" href="pssegy.html"><span class="doc">pssegy</span></a></li>
+<li><a class="reference internal" href="pssegyz.html"><span class="doc">pssegyz</span></a></li>
+<li><a class="reference internal" href="pswiggle.html"><span class="doc">pswiggle</span></a></li>
+<li><a class="reference internal" href="grdgravmag3d.html"><span class="doc">grdgravmag3d</span></a></li>
+<li><a class="reference internal" href="grdhisteq.html"><span class="doc">grdhisteq</span></a></li>
+<li><a class="reference internal" href="grdpmodeler.html"><span class="doc">grdpmodeler</span></a></li>
+<li><a class="reference internal" href="grdredpol.html"><span class="doc">grdredpol</span></a></li>
+<li><a class="reference internal" href="grdrotater.html"><span class="doc">grdrotater</span></a></li>
+<li><a class="reference internal" href="dimfilter.html"><span class="doc">dimfilter</span></a></li>
+<li><a class="reference internal" href="triangulate.html"><span class="doc">triangulate</span></a></li>
+<li><a class="reference internal" href="nearneighbor.html"><span class="doc">nearneighbor</span></a></li>
+<li><a class="reference internal" href="mgd77convert.html"><span class="doc">mgd77convert</span></a></li>
+<li><a class="reference internal" href="mgd77info.html"><span class="doc">mgd77info</span></a></li>
+<li><a class="reference internal" href="mgd77list.html"><span class="doc">mgd77list</span></a></li>
+<li><a class="reference internal" href="mgd77magref.html"><span class="doc">mgd77magref</span></a></li>
+<li><a class="reference internal" href="mgd77manage.html"><span class="doc">mgd77manage</span></a></li>
+<li><a class="reference internal" href="mgd77path.html"><span class="doc">mgd77path</span></a></li>
+<li><a class="reference internal" href="mgd77sniffer.html"><span class="doc">mgd77sniffer</span></a></li>
+<li><a class="reference internal" href="mgd77track.html"><span class="doc">mgd77track</span></a></li>
+<li><a class="reference internal" href="x2sys_binlist.html"><span class="doc">x2sys_binlist</span></a></li>
+<li><a class="reference internal" href="x2sys_cross.html"><span class="doc">x2sys_cross</span></a></li>
+<li><a class="reference internal" href="x2sys_datalist.html"><span class="doc">x2sys_datalist</span></a></li>
+<li><a class="reference internal" href="x2sys_get.html"><span class="doc">x2sys_get</span></a></li>
+<li><a class="reference internal" href="x2sys_init.html"><span class="doc">x2sys_init</span></a></li>
+<li><a class="reference internal" href="x2sys_list.html"><span class="doc">x2sys_list</span></a></li>
+<li><a class="reference internal" href="x2sys_merge.html"><span class="doc">x2sys_merge</span></a></li>
+<li><a class="reference internal" href="x2sys_put.html"><span class="doc">x2sys_put</span></a></li>
+<li><a class="reference internal" href="x2sys_report.html"><span class="doc">x2sys_report</span></a></li>
+<li><a class="reference internal" href="x2sys_solve.html"><span class="doc">x2sys_solve</span></a></li>
+<li><a class="reference internal" href="gmtswitch.html"><span class="doc">gmtswitch</span></a></li>
+<li><a class="reference internal" href="backtracker.html"><span class="doc">backtracker</span></a></li>
+<li><a class="reference internal" href="gmtgravmag3d.html"><span class="doc">gmtgravmag3d</span></a></li>
+<li><a class="reference internal" href="gmtspatial.html"><span class="doc">gmtspatial</span></a></li>
+<li><a class="reference internal" href="gmtvector.html"><span class="doc">gmtvector</span></a></li>
+<li><a class="reference internal" href="gravfft.html"><span class="doc">gravfft</span></a></li>
+<li><a class="reference internal" href="grdseamount.html"><span class="doc">grdseamount</span></a></li>
+<li><a class="reference internal" href="grdspotter.html"><span class="doc">grdspotter</span></a></li>
+<li><a class="reference internal" href="greenspline.html"><span class="doc">greenspline</span></a></li>
+<li><a class="reference internal" href="gshhg.html"><span class="doc">gshhg</span></a></li>
+<li><a class="reference internal" href="hotspotter.html"><span class="doc">hotspotter</span></a></li>
+<li><a class="reference internal" href="img2google.html"><span class="doc">img2google</span></a></li>
+<li><a class="reference internal" href="img2grd.html"><span class="doc">img2grd</span></a></li>
+<li><a class="reference internal" href="originator.html"><span class="doc">originator</span></a></li>
+<li><a class="reference internal" href="rotconverter.html"><span class="doc">rotconverter</span></a></li>
+<li><a class="reference internal" href="segy2grd.html"><span class="doc">segy2grd</span></a></li>
+<li><a class="reference internal" href="spectrum1d.html"><span class="doc">spectrum1d</span></a></li>
+<li><a class="reference internal" href="sph2grd.html"><span class="doc">sph2grd</span></a></li>
+<li><a class="reference internal" href="sphdistance.html"><span class="doc">sphdistance</span></a></li>
+<li><a class="reference internal" href="sphinterpolate.html"><span class="doc">sphinterpolate</span></a></li>
+<li><a class="reference internal" href="sphtriangulate.html"><span class="doc">sphtriangulate</span></a></li>
+</ol>
+</li>
+</ul>
+<div class="toctree-wrapper compound" id="id1">
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="index" data-title="GMT 5.2.1模块列表" data-url="http://modules.gmt-china.org/index.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="backtracker.html"
+                          title="下一页">&rarr; backtracker</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/index.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/index.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="backtracker.html" title="backtracker"
+             >下一页</a> &nbsp; &nbsp;</li>
+    <li><a href="#">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

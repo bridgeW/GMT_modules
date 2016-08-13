@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>xyz2grd &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="prev" title="x2sys_solve" href="x2sys_solve.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="x2sys_solve.html" title="x2sys_solve"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="xyz2grd">
+<span id="index-0"></span><h1>xyz2grd<a class="headerlink" href="#xyz2grd" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/xyz2grd.html" title="(在 GMT v5.2.1)"><span>xyz2grd</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">将XYZ数据或Z数据转换成网格文件</td>
+</tr>
+</tbody>
+</table>
+<p>该命令读取一个或多个Z数据或XYZ数据，并将其转换成二进制网格文件。</p>
+<div class="section" id="id1">
+<h2>选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">&lt;table&gt;</span></code></dt>
+<dd>输入表数据。可以只包含Z值，也可以包含 (x,y,z) 值。可以是ASCII格式，也可以是二进制格式。XYZ数据不要求排序，Z数据则必须排序，且必须使用 <code class="docutils literal"><span class="pre">-Z</span></code> 选项。</dd>
+<dt><code class="docutils literal"><span class="pre">-G&lt;grdfile&gt;</span></code></dt>
+<dd>生成的网格文件名</dd>
+<dt><code class="docutils literal"><span class="pre">-I&lt;xinc&gt;[&lt;unit&gt;][=|+]/&lt;yinc&gt;[&lt;unit&gt;][=|+]</span></code></dt>
+<dd><p class="first">指定X和Y方向的网格间隔</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">&lt;xinc&gt;</span></code> X方向的网格间隔</li>
+<li><code class="docutils literal"><span class="pre">&lt;yinc&gt;</span></code> Y方向的网格间隔</li>
+<li><code class="docutils literal"><span class="pre">&lt;unit&gt;</span></code> 网格间隔的单位</li>
+<li><code class="docutils literal"><span class="pre">=</span></code> 微调X和Y方向范围的最大值，使得其是网格间隔的整数倍（默认会微调网格间隔以适应给定的数据范围）</li>
+<li><code class="docutils literal"><span class="pre">+</span></code> 表明 <code class="docutils literal"><span class="pre">&lt;xinc&gt;</span></code> 和 <code class="docutils literal"><span class="pre">&lt;yinc&gt;</span></code> 不是网格间隔，而是X和Y方向的节点数</li>
+</ul>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-A[f|l|m|n|r|s|u|z]</span></code></dt>
+<dd><p class="first">多个数据落在同一个网格节点内时的处理方式。</p>
+<p>默认情况下，若有多个数据落在同一个网格节点内，会将这些数据的均值作为该节点的值。使用该选项可以控制这一行为：</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">-Af</span></code> 将第一个落在该节点内的数据值作为节点值</li>
+<li><code class="docutils literal"><span class="pre">-As</span></code> 将最后一个落在该节点内的数据值作为节点值</li>
+<li><code class="docutils literal"><span class="pre">-Al</span></code> 将落在该节点内的所有值的最小值作为节点值</li>
+<li><code class="docutils literal"><span class="pre">-Au</span></code> 将落在该节点内的所有值的最大值作为节点值</li>
+<li><code class="docutils literal"><span class="pre">-Am</span></code> 将落在该节点内的所有值的均值作为节点值</li>
+<li><code class="docutils literal"><span class="pre">-Ar</span></code> 将落在该节点内的所有值的RMS值作为节点值</li>
+<li><code class="docutils literal"><span class="pre">-An</span></code> 将落在该节点内的数据数目作为该节点值，该选项仅要求输入数据中有XY值</li>
+<li><code class="docutils literal"><span class="pre">-Az</span></code> 将落在该节点内的所有值的和作为节点值</li>
+</ul>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-D&lt;xname&gt;/&lt;yname&gt;/&lt;zname&gt;/&lt;scale&gt;/&lt;offset&gt;/&lt;invalid&gt;/&lt;title&gt;/&lt;remark&gt;</span></code></dt>
+<dd><p class="first">设置网格文件中的一些辅助信息</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&lt;xname&gt;/&lt;yname&gt;/&lt;zname&gt;</span></code> 变量名及其单位，比如 <code class="docutils literal"><span class="pre">&quot;distance</span> <span class="pre">[km]&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">&lt;scale&gt;</span></code> 读入网格后要乘以的缩放因子（默认值为1）</li>
+<li><code class="docutils literal"><span class="pre">&lt;offset&gt;</span></code> 乘以缩放因子后要加上的偏移量（默认值为0）</li>
+<li><code class="docutils literal"><span class="pre">&lt;invaild&gt;</span></code> 用于表示数据缺失的值（默认值为NaN）</li>
+<li><code class="docutils literal"><span class="pre">&lt;title&gt;/&lt;remark&gt;</span></code> 任意信息</li>
+</ul>
+<p>若需要保持某些值不变，可以直接将该字段留空。若想要在某个字段中使用字符 <code class="docutils literal"><span class="pre">/</span></code> ，则必须使用其他字符（不能是字母、数字、等号）作为分隔符，比如:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>-D:&lt;xname&gt;:&lt;yname&gt;:&lt;zname&gt;:&lt;scale&gt;:&lt;offset&gt;:&lt;invalid&gt;:&lt;title&gt;:&lt;remark&gt;:
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-S[&lt;zfile&gt;]</span></code></dt>
+<dd>对输入的Z文件做字节序转换并输出到标准输出或保存到文件 <code class="docutils literal"><span class="pre">&lt;zfile&gt;</span></code> 中。该选项不会只做字节序转换，不生成网格文件。该选项必须与 <code class="docutils literal"><span class="pre">-Z</span></code> 选项连用。</dd>
+<dt><code class="docutils literal"><span class="pre">-Z[&lt;flags&gt;]</span></code></dt>
+<dd>指定Z数据的格式。见官方文档</dd>
+</dl>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="xyz2grd" data-title="xyz2grd" data-url="http://modules.gmt-china.org/xyz2grd.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">xyz2grd</a><ul>
+<li><a class="reference internal" href="#id1">选项</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="x2sys_solve.html"
+                          title="上一页">&larr; x2sys_solve</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/xyz2grd.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/xyz2grd.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="x2sys_solve.html" title="x2sys_solve"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

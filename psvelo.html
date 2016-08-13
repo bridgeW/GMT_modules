@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>psvelo &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="next" title="pswiggle" href="pswiggle.html" />
+    <link rel="prev" title="pstext" href="pstext.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="pswiggle.html" title="pswiggle"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="pstext.html" title="pstext"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="psvelo">
+<span id="index-0"></span><h1>psvelo<a class="headerlink" href="#psvelo" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/supplements/meca/psvelo.html" title="(在 GMT v5.2.1)"><span>psvelo</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">在地图上绘制速度矢量、十字线、楔形图</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="s">
+<h2>-S选项<a class="headerlink" href="#s" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">-S</span></code> 选项决定了要绘制的符号的类型，以及输入数据的格式。</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">-Se&lt;velscale&gt;/&lt;confidence&gt;/&lt;fontsize&gt;</span></code></dt>
+<dd><p class="first">绘制速度椭圆。速度用矢量表示，速度的不确定度用椭圆表示。输入数据中每列的含义为：</p>
+<ol class="arabic simple">
+<li>台站经度</li>
+<li>台站纬度</li>
+<li>速度矢量的东向分量</li>
+<li>速度矢量的北向分量</li>
+<li>东向分量的不确定度（1-sigma）</li>
+<li>北向分量的不确定度（1-sigma）</li>
+<li>东向分量和北向分量的correlation</li>
+<li>台站名（可选）</li>
+</ol>
+<p>说明：</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal"><span class="pre">&lt;velscale&gt;</span></code> 控制了速度矢量的缩放比例，其对应了速度值为1的箭头的长度，默认单位由参数 <code class="docutils literal"><span class="pre">PROJ_LENGTH_UNIT</span></code> 决定，也可以自己添加长度单位 <code class="docutils literal"><span class="pre">i|c|p</span></code></li>
+<li><code class="docutils literal"><span class="pre">&lt;confidence&gt;</span></code> 设置了椭圆的2D置信区间的极限，比如0.95代表95%置信区间</li>
+<li><code class="docutils literal"><span class="pre">&lt;fontsize&gt;</span></code> 是文本（台站名）的大小</li>
+<li>椭圆的填充色由 <code class="docutils literal"><span class="pre">-G</span></code> 选项控制</li>
+<li>椭圆的轮廓以及矢量的画笔属性由 <code class="docutils literal"><span class="pre">-W</span></code> 选项控</li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-Sr&lt;velscale&gt;/&lt;confidence&gt;/&lt;fontsize&gt;</span></code></dt>
+<dd><p class="first">绘制速度椭圆，与 <code class="docutils literal"><span class="pre">-Se</span></code> 类似，区别在于输入文件不同：</p>
+<ol class="last arabic simple">
+<li>经度</li>
+<li>纬度</li>
+<li>速度矢量的东向分量</li>
+<li>速度矢量的北向分量</li>
+<li>椭圆的半长轴</li>
+<li>椭圆的半短轴</li>
+<li>椭圆的长轴相对于水平方向逆时针旋转的角度</li>
+<li>台站名（可选）</li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-Sn&lt;barscale&gt;</span></code></dt>
+<dd><p class="first">绘制各向异性矢量， <code class="docutils literal"><span class="pre">&lt;barscale&gt;</span></code> 是各向异性矢量的缩放比例。输入数据中每列的含义为：</p>
+<ol class="last arabic simple">
+<li>经度</li>
+<li>纬度</li>
+<li>各向异性矢量的东向分量</li>
+<li>各向异性矢量的北向分量</li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-Sw&lt;wedge_scale&gt;/&lt;wedge_mag&gt;</span></code></dt>
+<dd><p class="first">绘制旋转饼图。输入数据中每列的含义为：</p>
+<ol class="arabic simple">
+<li>经度</li>
+<li>纬度</li>
+<li>旋转的角度（以radians为单位）</li>
+<li>旋转的不确定度（以radians为单位）</li>
+</ol>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;wedge_scale&gt;</span></code> 设置了饼图的大小。所有的数值在绘图之前会先乘以 <code class="docutils literal"><span class="pre">&lt;wedge_mag&gt;</span></code> 。饼图的填充色由 <code class="docutils literal"><span class="pre">-G</span></code> 选项控制， 不确定度的颜色由 <code class="docutils literal"><span class="pre">-E</span></code> 控制。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-Sx&lt;cross_scale&gt;</span></code></dt>
+<dd><p class="first">绘制应变十字线。 <code class="docutils literal"><span class="pre">&lt;cross_scale&gt;</span></code> 控制十字线的大小。输入文件中每列的含义为：</p>
+<ol class="last arabic simple">
+<li>经度</li>
+<li>纬度</li>
+<li>eps1：应变张量的扩张本征值，扩张为正</li>
+<li>eps2： 应变张量的压缩本征值，扩张为正</li>
+<li>eps2的方位角（北方向顺时针旋转的角度）</li>
+</ol>
+</dd>
+</dl>
+</div>
+<div class="section" id="id1">
+<h2>选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">-A&lt;params&gt;</span></code></dt>
+<dd>修改矢量的属性，见 <a class="reference external" href="http://docs.gmt-china.org/vectors.html" title="(在 GMT v5.2.1)"><span>vectors</span></a> 一节</dd>
+<dt><code class="docutils literal"><span class="pre">-D&lt;sigma_scale&gt;</span></code></dt>
+<dd>控制 <code class="docutils literal"><span class="pre">-Se</span></code> 和 <code class="docutils literal"><span class="pre">-Sr</span></code> 中速度不确定度以及 <code class="docutils literal"><span class="pre">-Sw</span></code> 中旋转不确定度的缩放。该参数可以与 <code class="docutils literal"><span class="pre">&lt;confidence&gt;</span></code> 一起控制不确定度的绘制</dd>
+<dt><code class="docutils literal"><span class="pre">-F&lt;fill&gt;</span></code></dt>
+<dd>控制边框和标注的颜色</dd>
+<dt><code class="docutils literal"><span class="pre">-E&lt;fill&gt;</span></code></dt>
+<dd>控制 <code class="docutils literal"><span class="pre">-Sw</span></code> 中饼图不确定度的填充</dd>
+<dt><code class="docutils literal"><span class="pre">-G&lt;fill&gt;</span></code></dt>
+<dd>控制颜色？</dd>
+<dt><code class="docutils literal"><span class="pre">-L</span></code></dt>
+<dd>绘制线段。使用该选择，则椭圆和断层面会根据 <code class="docutils literal"><span class="pre">-W</span></code> 选项绘制轮廓</dd>
+<dt><code class="docutils literal"><span class="pre">-N</span></code></dt>
+<dd>不跳过区域范围外的符号</dd>
+<dt><code class="docutils literal"><span class="pre">-W&lt;pen&gt;</span></code></dt>
+<dd>设置速度箭头、椭圆轮廓以及断层边界的颜色</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">ps</span><span class="o">=</span>psvelo_ex1.ps
+
+<span class="c1"># 左边三个符号</span>
+gmt psvelo <span class="s">&lt;&lt; EOF -Xc -JM15c -R241/242/34/35 -B0.5 -BWeSn+tpsvelo \</span>
+<span class="s">    -Sw3c/1.e7 -W1p -G60 -E210 -D2 -P -K &gt; $ps</span>
+<span class="s"># lon     lat    spin(rad/yr) spin_sigma (rad/yr)</span>
+<span class="s">241.2 34.2  5.65E-08 1.17E-08</span>
+<span class="s">241.2 34.5 -4.85E-08 1.85E-08</span>
+<span class="s">241.2 34.7  4.46E-09 3.07E-08</span>
+<span class="s">EOF</span>
+
+<span class="c1"># 右边三个符号</span>
+gmt psvelo -J -R -Sw3c/1.e7 -W1p -D2 -O -K <span class="s">&lt;&lt; EOF &gt;&gt; $ps</span>
+<span class="s"># lon     lat    spin(rad/yr) spin_sigma (rad/yr)</span>
+<span class="s">241.7 34.2  5.65E-08 1.17E-08</span>
+<span class="s">241.7 34.5 -4.85E-08 1.85E-08</span>
+<span class="s">241.7 34.7  4.46E-09 3.07E-08</span>
+<span class="s">EOF</span>
+gmt pscoast -O -R -J -W1p -Di &gt;&gt; <span class="nv">$ps</span>
+rm gmt.*
+</pre></div>
+</div>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="_images/psvelo_ex1.png"><img alt="_images/psvelo_ex1.png" src="_images/psvelo_ex1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">psvelo示例图1</span></p>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">ps</span><span class="o">=</span>psvelo_ex2.ps
+
+gmt psvelo -R-10/10/-10/10 -Wthin,red <span class="se">\</span>
+	-Se0.2c/0.39/12 -B1g1 -BWeSn -Jx0.2i -Ggreen -Eblue -L -N <span class="se">\</span>
+	-A1c+p3p+e -K <span class="s">&lt;&lt; EOF &gt; $ps</span>
+<span class="s"># Long.   Lat.   Evel   Nvel   Esig   Nsig  CorEN SITE</span>
+<span class="s"># (deg)  (deg)    (mm/yr)        (mm/yr)</span>
+<span class="s">   -8.    0.     5.0    0.0     4.0    6.0  0.500  4x6</span>
+<span class="s">   -5.    0.     0.0    5.0     4.0    6.0  0.500  4x6</span>
+<span class="s">   -5.    5.    -5.0    0.0     4.0    6.0  0.500  4x6</span>
+<span class="s">   -8.    5.     0.0   -5.0     0.0    0.0  0.500  4x6</span>
+<span class="s">   -1.    5.     3.0    3.0     1.0    1.0  0.100  3x3</span>
+<span class="s">EOF</span>
+
+gmt psvelo -Se0.2c/0.39/14 -R -J -A0.25c+p0.25p+e -O <span class="s">&lt;&lt; EOF &gt;&gt; $ps</span>
+<span class="s"># Long.   Lat.   Evel   Nvel   Esig   Nsig  CorEN SITE</span>
+<span class="s"># (deg)  (deg)    (mm/yr)        (mm/yr)</span>
+<span class="s">   0.    -8.     0.0    0.0     4.0    6.0  0.100  4x6</span>
+<span class="s">  -8.     5.     3.0    3.0     0.0    0.0  0.200  3x3</span>
+<span class="s">   0.     0.     4.0    6.0     4.0    6.0  0.300</span>
+<span class="s">  -5.    -5.     6.0    4.0     6.0    4.0  0.400  6x4</span>
+<span class="s">   5.     0.    -6.0    4.0     6.0    4.0 -0.300  -6x4</span>
+<span class="s">   0.    -5.     6.0   -4.0     6.0    4.0 -0.500  6x-4</span>
+<span class="s">EOF</span>
+rm gmt.*
+</pre></div>
+</div>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="_images/psvelo_ex2.png"><img alt="_images/psvelo_ex2.png" src="_images/psvelo_ex2.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">psvelo示例图2</span></p>
+</div>
+<p>下面的示例展示了如何绘制应变十字线:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt psvelo -JX10c/10c -R0/10/0/10 -Sx10 -W1p &gt; test.ps <span class="s">&lt;&lt; EOF</span>
+<span class="s">5 5 0.5 0.3 45</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="psvelo" data-title="psvelo" data-url="http://modules.gmt-china.org/psvelo.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">psvelo</a><ul>
+<li><a class="reference internal" href="#s">-S选项</a></li>
+<li><a class="reference internal" href="#id1">选项</a></li>
+<li><a class="reference internal" href="#id2">示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="pstext.html"
+                          title="上一页">&larr; pstext</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="pswiggle.html"
+                          title="下一页">&rarr; pswiggle</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/psvelo.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/psvelo.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="pswiggle.html" title="pswiggle"
+             >下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="pstext.html" title="pstext"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

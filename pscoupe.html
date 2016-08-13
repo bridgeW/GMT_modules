@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pscoupe &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="next" title="pshistogram" href="pshistogram.html" />
+    <link rel="prev" title="psconvert" href="psconvert.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="pshistogram.html" title="pshistogram"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="psconvert.html" title="psconvert"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="pscoupe">
+<span id="index-0"></span><h1>pscoupe<a class="headerlink" href="#pscoupe" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/supplements/meca/pscoupe.html" title="(在 GMT v5.2.1)"><span>pscoupe</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">绘制震源机制解的剖面图</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="psmeca.html"><span class="doc">psmeca</span></a> 在绘制震源球时，本质上是取了一个水平剖面，并将三维震源球的下半球投影到该水平剖面上。而 <a class="reference internal" href="#"><span class="doc">pscoupe</span></a> 则更灵活一些，可以将三维震源球投影到任意一个剖面上。</p>
+<ul class="simple">
+<li>对于一个水平剖面，会将下半球投影到平面上（即 <a class="reference internal" href="psmeca.html"><span class="doc">psmeca</span></a> 的做法）</li>
+<li>对于一个垂直剖面，会将垂直平面后的半球投影到平面上</li>
+<li>对于任意一个非水平的平面而言：<ul>
+<li>北方向为平面的最速下降方向</li>
+<li>东方向为平面的走向方向</li>
+<li>下方向则根据右手定则确定</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="id1">
+<h2>剖面类型<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">-A</span></code> 选项用于确定剖面。</p>
+<p><code class="docutils literal"><span class="pre">-Aa&lt;lon1&gt;/&lt;lat1&gt;/&lt;lon2&gt;/&lt;lat2&gt;/&lt;dip&gt;/&lt;p_width&gt;/&lt;dmin&gt;/&lt;dmax&gt;[f]</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">&lt;lon1&gt;/&lt;lat1&gt;</span></code> 剖面起点的经纬度</li>
+<li><code class="docutils literal"><span class="pre">&lt;lon2&gt;/&lt;lat2&gt;</span></code> 剖面终点的经纬度</li>
+<li>起点和终点确定了剖面的长度</li>
+<li><code class="docutils literal"><span class="pre">&lt;dip&gt;</span></code> 剖面所在平面的倾角（0表示水平剖面，90表示垂直剖面）</li>
+<li><code class="docutils literal"><span class="pre">&lt;p_width&gt;</span></code> 剖面的宽度（即剖面不是一个平面，而是一个有厚度的长方体）</li>
+<li><code class="docutils literal"><span class="pre">&lt;dmin&gt;/&lt;dmax&gt;</span></code> 是沿着最速下降方向（“北”方向）的最小、最大距离</li>
+<li><code class="docutils literal"><span class="pre">f</span></code> 表示根据剖面的参数自动计算边框的范围</li>
+<li>TODO: <code class="docutils literal"><span class="pre">&lt;p_width&gt;/&lt;dmin&gt;/&lt;dmax&gt;</span></code> 的具体含义尚不明确</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">-Ab&lt;lon1&gt;/&lt;lat1&gt;/&lt;strike&gt;/&lt;p_length&gt;/&lt;dip&gt;/&lt;p_width&gt;/&lt;dmin&gt;/&lt;dmax&gt;[f]</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">&lt;lon1&gt;/&lt;lat1&gt;</span></code> 剖面起点的经纬度</li>
+<li><code class="docutils literal"><span class="pre">&lt;strike&gt;</span></code> 是剖面的走向</li>
+<li><code class="docutils literal"><span class="pre">&lt;p_length&gt;</span></code> 是剖面的长度</li>
+<li>其他参数与 <code class="docutils literal"><span class="pre">-Aa</span></code> 相同</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">-Ac&lt;x1&gt;/&lt;y1&gt;/&lt;x2&gt;/&lt;y2&gt;/&lt;dip&gt;/&lt;p_width&gt;/&lt;dmin&gt;/&lt;dmax&gt;[f]</span></code></p>
+<blockquote>
+<div>与 <code class="docutils literal"><span class="pre">-Aa</span></code> 选项相同，只是 <code class="docutils literal"><span class="pre">&lt;x&gt;/&lt;y&gt;</span></code> 为笛卡尔坐标而不是地理坐标</div></blockquote>
+<p><code class="docutils literal"><span class="pre">-Ad&lt;x1&gt;/&lt;y1&gt;/&lt;strike&gt;/&lt;p_length&gt;/&lt;dip&gt;/&lt;p_width&gt;/&lt;dmin&gt;/&lt;dmax&gt;[f]</span></code></p>
+<blockquote>
+<div>与 <code class="docutils literal"><span class="pre">-Ab</span></code> 选项相同，只是 <code class="docutils literal"><span class="pre">&lt;x&gt;/&lt;y&gt;</span></code> 为笛卡尔坐标而不是地理坐标</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h2>选项<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">-E&lt;color&gt;</span></code></dt>
+<dd>扩张部分的填充色，默认为白色</dd>
+<dt><code class="docutils literal"><span class="pre">-F&lt;mode&gt;[&lt;args&gt;]</span></code></dt>
+<dd><p class="first">设置多个属性，可重复使用多次</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">-Fs&lt;symbol&gt;[&lt;size[/&lt;fontsize&gt;[/&lt;offset&gt;[&lt;u&gt;]]]]</span></code> 见官方文档</li>
+<li><code class="docutils literal"><span class="pre">-Fa[&lt;size&gt;][/&lt;P_axis_symbol&gt;[&lt;T_axis_symbol&gt;]]</span></code> 计算并绘制P和T轴的符号。 <code class="docutils literal"><span class="pre">&lt;size&gt;</span></code> 是符号大小，符号与 <a class="reference internal" href="psxy.html"><span class="doc">psxy</span></a> 类似，可以取 <code class="docutils literal"><span class="pre">c|d|h|i|p|s|t|x</span></code> ，默认值为 <code class="docutils literal"><span class="pre">6p/cc</span></code></li>
+<li><code class="docutils literal"><span class="pre">-Fe&lt;fill&gt;</span></code> 设置T轴符号的填充色</li>
+<li><code class="docutils literal"><span class="pre">-Fg&lt;fill&gt;</span></code> 设置P轴符号的填充色</li>
+<li><code class="docutils literal"><span class="pre">-Fp&lt;pen&gt;</span></code> P轴轮廓的画笔属性</li>
+<li><code class="docutils literal"><span class="pre">-Ft&lt;pen&gt;</span></code> T轴轮廓的画笔属性</li>
+<li><code class="docutils literal"><span class="pre">-Fr&lt;fill&gt;</span></code> 在标签后加一个方框</li>
+</ul>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-G&lt;color&gt;</span></code></dt>
+<dd>指定压缩部分的填充色，默认值为黑色</dd>
+<dt><code class="docutils literal"><span class="pre">-L[&lt;pen&gt;]</span></code></dt>
+<dd>设置震源球外部轮廓的线条属性</dd>
+<dt><code class="docutils literal"><span class="pre">-M</span></code></dt>
+<dd>所有震级使用相同的大小，具体大小由 <code class="docutils literal"><span class="pre">-S</span></code> 选项的 <code class="docutils literal"><span class="pre">&lt;scale&gt;</span></code> 参数决定。</dd>
+<dt><code class="docutils literal"><span class="pre">-N</span></code></dt>
+<dd>地图区域外的震源球也要绘制，默认不绘制。</dd>
+<dt><code class="docutils literal"><span class="pre">-Q</span></code></dt>
+<dd>默认会生成一些临时文件，其中包含了剖面和剖面上的震源机制的信息，使用该选项，则不会生成这些临时文件。</dd>
+<dt><code class="docutils literal"><span class="pre">-T&lt;num_of_planes][/&lt;pen&gt;]</span></code></dt>
+<dd><p class="first">绘制断层平面。 <code class="docutils literal"><span class="pre">&lt;num_of_planes&gt;</span></code> 可以取：</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">0</span></code> 绘制两个断层面</li>
+<li><code class="docutils literal"><span class="pre">1</span></code> 绘制第一个断层面</li>
+<li><code class="docutils literal"><span class="pre">2</span></code> 绘制第二个断层面</li>
+</ul>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-S</span></code></dt>
+<dd><p class="first">选择震源机制解的格式。与 <a class="reference internal" href="psmeca.html"><span class="doc">psmeca</span></a> 中 <code class="docutils literal"><span class="pre">-S</span></code> 选项用法相同</p>
+<p class="last">唯一的不同在于，输入文件中 <code class="docutils literal"><span class="pre">newX</span></code> 和 <code class="docutils literal"><span class="pre">newY</span></code> 对该命令无效，这里加上 <code class="docutils literal"><span class="pre">newX</span></code> 和 <code class="docutils literal"><span class="pre">newY</span></code> 只是为了是的该命令可以使用与 <a class="reference internal" href="psmeca.html"><span class="doc">psmeca</span></a> 相同的输入文件。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-W&lt;pen&gt;</span></code></dt>
+<dd>设置断层边界的画笔属性</dd>
+<dt><code class="docutils literal"><span class="pre">-Z&lt;cpt&gt;</span></code></dt>
+<dd>指定CPT文件，根据数据文件中第三列的值（即地震深度）确定震源球的压缩部分的颜色。</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h2>示例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>下面的示例展示了 <code class="docutils literal"><span class="pre">-Aa</span></code> 选项的用法，指定P1和P2为剖面的起点和终点，并展示了不同倾角时的震源球的效果。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">ps</span><span class="o">=</span>pscoupe_ex1.ps
+
+gmt gmtset PROJ_LENGTH_UNIT inch MAP_TICK_LENGTH_PRIMARY 0.075i <span class="se">\</span>
+    MAP_FRAME_WIDTH 0.1i MAP_ORIGIN_X 2.5c MAP_ORIGIN_Y 1.3i
+
+<span class="c1"># Plotting 2 mechanisms on map</span>
+gmt psmeca -R128/130/10/11.1 -JX2i -Fa0.1i/cc -Sc0.4i -B1 -Y8.5i -P -K <span class="s">&lt;&lt; EOF &gt; $ps</span>
+<span class="s"># lon   lat  dep str dip rake str dip rake m ex nx ny</span>
+<span class="s">129.5  10.5 10  0   90   0  90   90 180  1 24  0  0 10km</span>
+<span class="s">128.5  10.5 40  0   45  90 180   45  90  1 24  0  0 40km</span>
+<span class="s">EOF</span>
+<span class="o">(</span><span class="nb">echo</span> <span class="m">128</span> 11<span class="p">;</span> <span class="nb">echo</span> <span class="m">130</span> 11<span class="o">)</span> <span class="p">|</span> gmt psxy -R -J -K -O -W0.25p,red &gt;&gt; <span class="nv">$ps</span>
+gmt pstext -R -J -N -F+f14p,Helvetica-Bold+j -K -O <span class="s">&lt;&lt; EOF &gt;&gt; $ps</span>
+<span class="s">128 11 ML P1</span>
+<span class="s">130 11 MR P2</span>
+<span class="s">EOF</span>
+
+<span class="c1"># Represent cross-sections between points P1(128E11N) and P2(130E/11N)</span>
+<span class="c1"># on a plane the dip of which varies</span>
+<span class="c1"># from quasi horizontal to vertical.</span>
+<span class="c1"># y dimension is counted along steepest descent on the plane</span>
+<span class="c1"># so the values of depth are only in the vertical cross-section.</span>
+
+<span class="c1"># Variation of dip for cross-section plane</span>
+<span class="c1"># (WE azimuth, between points (128E,11N) and (130E,11N)))</span>
+
+plots <span class="o">()</span> <span class="o">{</span>
+<span class="nv">y_offset</span><span class="o">=</span>-2.5i
+<span class="k">for</span> d in <span class="nv">$1</span> <span class="nv">$2</span> <span class="nv">$3</span> <span class="p">;</span> <span class="k">do</span>
+    gmt pscoupe -R0/200/0/100 -JX1.5i/-1.5i -Bxa100f10 -Bya50f10 -BWesN <span class="se">\</span>
+        -Q -L -Sc0.4 -Aa128/11/130/11/<span class="nv">$d</span>/60/0/100f -Ggrey -Fa0.1i/cc <span class="nv">$4</span> <span class="nv">$5</span> <span class="se">\</span>
+        -Y<span class="nv">$y_offset</span> -X<span class="nv">$x_offset</span> -O -K <span class="s">&lt;&lt; EOF</span>
+<span class="s"># lon   lat  dep str dip rake str dip rake m ex nx ny</span>
+<span class="s">129.5 10.5  10  0   90   0  90   90 180  1 24  0  0 10km</span>
+<span class="s">128.5 10.5  40  0   45  90 180   45  90  1 24  0  0 40km</span>
+<span class="s">EOF</span>
+    gmt pstext -R -J -F+f18p,Helvetica-Bold+jBL -O -K <span class="o">&lt;&lt;&lt;</span> <span class="s2">&quot;10 15 </span><span class="nv">$d</span><span class="s2">&quot;</span>
+    <span class="nv">y_offset</span><span class="o">=</span>0i
+    <span class="nv">x_offset</span><span class="o">=</span>2.5i
+<span class="k">done</span>
+<span class="nv">x_offset</span><span class="o">=</span>-5i
+<span class="o">}</span>
+
+<span class="nv">x_offset</span><span class="o">=</span>0i
+
+plots <span class="m">10</span> <span class="m">20</span> <span class="m">30</span> &gt;&gt; <span class="nv">$ps</span>
+plots <span class="m">40</span> <span class="m">50</span> <span class="m">60</span> &gt;&gt; <span class="nv">$ps</span>
+plots <span class="m">70</span> <span class="m">80</span> <span class="m">90</span> -N &gt;&gt; <span class="nv">$ps</span>
+
+gmt pstext -X-5i -R0/10/0/15 -Jx1i -F+jBL+fHelvetica-Bold+f -O <span class="s">&lt;&lt; EOF &gt;&gt; $ps</span>
+<span class="s">3 8.5 24 Variation of dip</span>
+<span class="s">3 8.0 20 W-E cross-section</span>
+<span class="s">EOF</span>
+rm gmt.*
+</pre></div>
+</div>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="_images/pscoupe_ex1.png"><img alt="pscoupe example 1" src="_images/pscoupe_ex1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">pscoupe示例图1</span></p>
+</div>
+<p>下面的示例将震源球投影到不同方位角的剖面上的效果：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># test/meca/meca_4.sh</span>
+
+<span class="nv">ps</span><span class="o">=</span>pscoupe_ex2.ps
+
+gmt gmtset PROJ_LENGTH_UNIT inch MAP_TICK_LENGTH_PRIMARY 0.075i MAP_FRAME_WIDTH 0.1i <span class="se">\</span>
+    MAP_ORIGIN_X 2.5c MAP_ORIGIN_Y 1.3i
+
+<span class="c1"># Plotting 2 mechanisms on map</span>
+gmt psmeca -R128/130/10/11.1 -JX2i -Fa0.1i/cc -Sc0.4i -B1 -Y8.5i -P -K <span class="s">&lt;&lt; EOF &gt; $ps</span>
+<span class="s"># lon   lat  dep str dip rake str dip rake m ex nx ny</span>
+<span class="s">129.5  10.5 10  0   90   0  90   90 180  1 24  0  0 10km</span>
+<span class="s">128.5  10.5 40  0   45  90 180   45  90  1 24  0  0 40km</span>
+<span class="s">EOF</span>
+<span class="o">(</span><span class="nb">echo</span> <span class="m">128</span> 11<span class="p">;</span> <span class="nb">echo</span> <span class="m">130</span> 11<span class="o">)</span> <span class="p">|</span> gmt psxy -R -J -K -O -W0.25p,red &gt;&gt; <span class="nv">$ps</span>
+gmt pstext -R -J -N -F+f14p,Helvetica-Bold+j -K -O <span class="s">&lt;&lt; EOF &gt;&gt; $ps</span>
+<span class="s">128 11 ML P1</span>
+<span class="s">130 11 MR P2</span>
+<span class="s">EOF</span>
+
+plots <span class="o">()</span> <span class="o">{</span>
+<span class="nv">y_offset</span><span class="o">=</span>-2.5i
+<span class="k">for</span> a in <span class="nv">$1</span> <span class="nv">$2</span> <span class="nv">$3</span> <span class="p">;</span> <span class="k">do</span>
+    gmt pscoupe -R0/250/0/100 -JX1.5i/-1.5i -Bxa100f10 -Bya50f10 -BWesN <span class="se">\</span>
+        -Q -L -Sc0.4 -Ab<span class="nv">$4</span>/<span class="nv">$5</span>/<span class="nv">$a</span>/250/90/<span class="nv">$6</span>/0/100f -Ggrey -Fa0.1i/cc <span class="nv">$7</span> <span class="nv">$8</span> <span class="se">\</span>
+        -Y<span class="nv">$y_offset</span> -X<span class="nv">$x_offset</span> -O -K <span class="s">&lt;&lt; EOF</span>
+<span class="s"># lon   lat  dep str dip rake str dip rake m ex nx ny</span>
+<span class="s">129.5 10.5  10  0   90   0  90   90 180  1 24  0  0 10km</span>
+<span class="s">128.5 10.5  40  0   45  90 180   45  90  1 24  0  0 40km</span>
+<span class="s">EOF</span>
+    gmt pstext -R -J -F+f18p,Helvetica-Bold+jBR -O -K <span class="o">&lt;&lt;&lt;</span> <span class="s2">&quot;240 90 </span><span class="nv">$a</span><span class="s2">&quot;</span>
+    <span class="nv">y_offset</span><span class="o">=</span>0i
+    <span class="nv">x_offset</span><span class="o">=</span>2.5i
+<span class="k">done</span>
+<span class="nv">x_offset</span><span class="o">=</span>-5i
+<span class="o">}</span>
+
+<span class="nv">x_offset</span><span class="o">=</span>0i
+
+plots   <span class="m">0</span>  <span class="m">40</span>  <span class="m">80</span> <span class="m">128</span> 10.0 <span class="m">200</span>    &gt;&gt; <span class="nv">$ps</span>
+plots <span class="m">120</span> <span class="m">160</span> <span class="m">200</span> <span class="m">128</span> 11.0 <span class="m">400</span> -N &gt;&gt; <span class="nv">$ps</span>
+plots <span class="m">240</span> <span class="m">280</span> <span class="m">320</span> <span class="m">130</span> 10.5 <span class="m">200</span> -N &gt;&gt; <span class="nv">$ps</span>
+
+gmt pstext -X-5i -R0/10/0/15 -Jx1i -F+jBL+fHelvetica-Bold+f -O <span class="s">&lt;&lt; EOF &gt;&gt; $ps</span>
+<span class="s">3 8.5 24 Variation of azimuth</span>
+<span class="s">3 8.0 20 vertical cross-section</span>
+<span class="s">EOF</span>
+rm gmt.*
+</pre></div>
+</div>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="_images/pscoupe_ex2.png"><img alt="pscoupe example 2" src="_images/pscoupe_ex2.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">pscoupe示例图2</span></p>
+</div>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="pscoupe" data-title="pscoupe" data-url="http://modules.gmt-china.org/pscoupe.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">pscoupe</a><ul>
+<li><a class="reference internal" href="#id1">剖面类型</a></li>
+<li><a class="reference internal" href="#id2">选项</a></li>
+<li><a class="reference internal" href="#id3">示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="psconvert.html"
+                          title="上一页">&larr; psconvert</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="pshistogram.html"
+                          title="下一页">&rarr; pshistogram</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/pscoupe.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/pscoupe.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="pshistogram.html" title="pshistogram"
+             >下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="psconvert.html" title="psconvert"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

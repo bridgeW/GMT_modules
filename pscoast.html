@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pscoast &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="next" title="pscontour" href="pscontour.html" />
+    <link rel="prev" title="psclip" href="psclip.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="pscontour.html" title="pscontour"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="psclip.html" title="psclip"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="pscoast">
+<span id="index-0"></span><h1>pscoast<a class="headerlink" href="#pscoast" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/pscoast.html" title="(在 GMT v5.2.1)"><span>pscoast</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">在地图上绘制海岸线、河流、国界线</td>
+</tr>
+</tbody>
+</table>
+<p>该命令除了可以用于绘制海岸线、河流、政治边界，还可以裁剪陆地区域或水域，也可以将数据导出到文件中。</p>
+<div class="section" id="id1">
+<h2>选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">-A</span></code></dt>
+<dd><p class="first">不绘制面积过小的湖泊的边界，或不绘制某个级别的湖泊边界。</p>
+<p>该选项的语法是:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-A&lt;min_area&gt;<span class="o">[</span>/&lt;min_level&gt;/&lt;max_level&gt;<span class="o">][</span>+ag<span class="p">|</span>i<span class="p">|</span>s<span class="p">|</span>S<span class="o">][</span>+r<span class="p">|</span>l<span class="o">][</span>+p&lt;percent&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<p>在绘制湖泊时，若不管湖泊的面积大小而把所有湖泊的边界都画上去，可能导致图看上去比较乱，该选项用于对湖泊进行筛选。面积小于 <code class="docutils literal"><span class="pre">&lt;min_area&gt;</span></code> 平方千米或者湖泊级别不在 <code class="docutils literal"><span class="pre">[min_level,max_level]</span></code> 范围的边界都不会被绘制。默认值为 <code class="docutils literal"><span class="pre">0/0/4</span></code> ，即绘制所有湖泊边界。关于湖泊边界的等级，在下面会介绍。</p>
+<p>对于level=2，即湖岸线，包括常规的湖以及很宽的河流。加上 <code class="docutils literal"><span class="pre">+r</span></code> 则只绘制河流，加上 <code class="docutils literal"><span class="pre">+l</span></code> 则只绘制常规湖。</p>
+<p>对于南极洲而言，因为有冰层的存在，所以海岸线有多种处理方式：</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">+ai</span></code> 用ice shell boundary作为南极洲的海岸线，默认值</li>
+<li><code class="docutils literal"><span class="pre">+ag</span></code> 以ice grounding line作为海岸线</li>
+<li><code class="docutils literal"><span class="pre">+as</span></code> 跳过南纬60度以南的海岸线，这样用户即可使用 <code class="docutils literal"><span class="pre">psxy</span></code> 绘制自己的南极洲海岸线</li>
+<li><code class="docutils literal"><span class="pre">+aS</span></code> 跳过南纬60度以北的海岸线</li>
+</ol>
+<p class="last"><code class="docutils literal"><span class="pre">+p&lt;precent&gt;</span></code> ：一个多边形，降低精度后，边数减少，面积变化，当面积变化过大时再绘制这个多边形就不合适了，该子选项用于去除那些面积与最高精度面积之比小于 <code class="docutils literal"><span class="pre">&lt;percent&gt;</span></code> 的多边形。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-C[l|r]&lt;fill&gt;</span></code></dt>
+<dd><p class="first">设置湖泊与河流湖的颜色。</p>
+<p>默认情况下，湖泊与河流湖会被当做wet区域，直接使用 <code class="docutils literal"><span class="pre">-S</span></code> 指定的填充值。该选项可以为湖泊和河流湖单独指定颜色，也可以多次使用该选项分别为湖泊和河流湖指定颜色。</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal"><span class="pre">-G&lt;fill&gt;</span></code> 同时指定湖泊和河流湖的颜色</li>
+<li><code class="docutils literal"><span class="pre">-Gl&lt;fill&gt;</span></code> 指定湖泊（lake）颜色</li>
+<li><code class="docutils literal"><span class="pre">-Gr&lt;fill&gt;</span></code> 指定河流湖（river-lake）颜色</li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-D[a|f|h|i|l|c][+]</span></code></dt>
+<dd><p class="first">选择海岸线数据精度。</p>
+<p>GMT自带的GSHHG海岸线数据，有5个不同精度的版本，从高到低依次为：full、high、intermediate、low和crude。GMT默认使用低精度数据。该选项可以指定要使用的数据精度，其中 <code class="docutils literal"><span class="pre">&lt;resolution&gt;</span></code> 可以取 <code class="docutils literal"><span class="pre">f|h|i|l|c</span></code> 分别代表5种不同的精度，当然也可以用 <code class="docutils literal"><span class="pre">-Da</span></code> 选项，此时GMT会根据当前绘图区域的大小自动选择合适的数据精度。</p>
+<p class="last">默认情况下，若找不到指定精度的海岸线数据，程序会自动报错退出。该选项中加上 <code class="docutils literal"><span class="pre">+</span></code> 则命令在找不到当前指定的精度数据时，自动寻找更低精度的数据。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-E&lt;code1&gt;,&lt;code2&gt;,...[+l|L][+gfill][+ppen][+r|R[incs]]</span></code></dt>
+<dd><p class="first">绘制或导出行政区划边界（洲界、国界、省界）。</p>
+<p>除了海岸线数据GSHHG之外，GMT还自带了DCW（Digital Chart of World）数据，即全球的行政区划数据。DCW数据位于 <code class="docutils literal"><span class="pre">${GMTHOME}/share/dcw</span></code> 目录下，包含了全球各国的国界和各国的省界数据。该数据独立于GSHHG数据，因而 <code class="docutils literal"><span class="pre">-A</span></code> 和 <code class="docutils literal"><span class="pre">-D</span></code> 选项对该数据无效。</p>
+<p>说明：</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">&lt;code&gt;</span></code> 是要绘制或提取的边界数据的代码，多个代码之间用逗号分隔</li>
+<li>具体的代码参考dcw目录下的文档。代码有如下几种形式<ol class="arabic">
+<li>洲代码前加上 <code class="docutils literal"><span class="pre">=</span></code> 则绘制整个洲内所有国家边界，比如 <code class="docutils literal"><span class="pre">=AS</span></code> 会绘制所有亚洲国家的边界</li>
+<li>直接使用国界代码，则绘制国界边界，比如 <code class="docutils literal"><span class="pre">US</span></code> 绘制美国边界</li>
+<li>使用 <code class="docutils literal"><span class="pre">国家代码.州代码</span></code> ，则绘制州（省）边界，比如 <code class="docutils literal"><span class="pre">US.TX</span></code> 绘制美国Texas州的边界</li>
+</ol>
+</li>
+<li><code class="docutils literal"><span class="pre">+l</span></code> 仅列出所有国家及其对应代码，不绘制边界也不提取数据</li>
+<li><code class="docutils literal"><span class="pre">+L</span></code> 列出部分国界的省及其代码</li>
+<li><code class="docutils literal"><span class="pre">+g&lt;fill&gt;</span></code> 设置多边形的填充色</li>
+<li><code class="docutils literal"><span class="pre">+p&lt;pen&gt;</span></code> 绘制多边形的轮廓</li>
+<li><code class="docutils literal"><span class="pre">+r</span></code> 获取多边形所对应的区域范围，以便于直接从数据中提取 <code class="docutils literal"><span class="pre">-R</span></code> 选项的范围。 <code class="docutils literal"><span class="pre">&lt;incs&gt;</span></code> 可以是 <code class="docutils literal"><span class="pre">&lt;inc&gt;</span></code> 、 <code class="docutils literal"><span class="pre">&lt;xinc&gt;/&lt;yinc&gt;</span></code> 、 <code class="docutils literal"><span class="pre">&lt;winc&gt;/&lt;einc&gt;/&lt;sinc&gt;/&lt;ninc&gt;</span></code> 以调整区域范围使得范围是这些步长的整数倍</li>
+<li><code class="docutils literal"><span class="pre">+R</span></code> 与 <code class="docutils literal"><span class="pre">+r</span></code> 类似，只是之后的 <code class="docutils literal"><span class="pre">&lt;incs&gt;</span></code> 等参数被解释为区域范围向外扩展的增量</li>
+</ol>
+<p>额外的说明：</p>
+<ol class="last arabic simple">
+<li>除非使用了 <code class="docutils literal"><span class="pre">+r</span></code> 、 <code class="docutils literal"><span class="pre">+R</span></code> 或 <code class="docutils literal"><span class="pre">-M</span></code> 选项，否则必须指定 <code class="docutils literal"><span class="pre">+p|+g</span></code> 中的一个</li>
+<li><code class="docutils literal"><span class="pre">-E</span></code> 选项可以重复出现多次，以分别为不同的多边形设置不同的属性</li>
+<li>若使用了 <code class="docutils literal"><span class="pre">+r|+R</span></code> 但未使用 <code class="docutils literal"><span class="pre">-J|-M</span></code> ，则直接输出 <code class="docutils literal"><span class="pre">-R&lt;w&gt;/&lt;e&gt;/&lt;s&gt;/&lt;n&gt;</span></code> 格式的字符串</li>
+<li>个别地方有BUG</li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-F</span></code></dt>
+<dd>控制比例尺和玫瑰图的背景边框，见 <a class="reference external" href="http://docs.gmt-china.org/embellishments.html" title="(在 GMT v5.2.1)"><span>embellishments</span></a> 一节</dd>
+<dt><code class="docutils literal"><span class="pre">-G&lt;fill&gt;|c</span></code></dt>
+<dd><p class="first">设置dry区域的填充色或裁剪dry区域</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal"><span class="pre">-G&lt;fill&gt;</span></code> 设置dry区域（一般指陆地）的填充色</li>
+<li><code class="docutils literal"><span class="pre">-Gc</span></code> 将dry区域裁剪出来，使得接下来的绘图只有dry区域内的才会被绘制</li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-I&lt;river&gt;[/&lt;pen&gt;]</span></code></dt>
+<dd><p class="first">绘制河流。</p>
+<p>河流 <code class="docutils literal"><span class="pre">&lt;river&gt;</span></code> 可以取：</p>
+<ul class="simple">
+<li>0 = Double-lined rivers (river-lakes)</li>
+<li>1 = Permanent major rivers</li>
+<li>2 = Additional major rivers</li>
+<li>3 = Additional rivers</li>
+<li>4 = Minor rivers</li>
+<li>5 = Intermittent rivers - major</li>
+<li>6 = Intermittent rivers - additional</li>
+<li>7 = Intermittent rivers - minor</li>
+<li>8 = Major canals</li>
+<li>9 = Minor canals</li>
+<li>10 = Irrigation canals</li>
+<li>a = All rivers and canals (0-10)</li>
+<li>A = All rivers and canals except river-lakes (1-10)</li>
+<li>r = All permanent rivers (0-4)</li>
+<li>R = All permanent rivers except river-lakes (1-4)</li>
+<li>i = All intermittent rivers (5-7)</li>
+<li>c = All canals (8-10)</li>
+</ul>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;pen&gt;</span></code> 的默认值为 <code class="docutils literal"><span class="pre">default,black,solid</span></code> ， 该选项可以重复使用多次。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-L</span></code></dt>
+<dd>绘制比例尺。见 <a class="reference internal" href="psbasemap.html"><span class="doc">psbasemap</span></a> 中该选项的介绍</dd>
+<dt><code class="docutils literal"><span class="pre">-M</span></code></dt>
+<dd><p class="first">将边界数据以多段ASCII表的形式导出到标准输出</p>
+<p class="last">使用该选项，则只导出数据而不绘图，该选项需要与 <code class="docutils literal"><span class="pre">-E|-I|-N|-W</span></code> 选项一起使用。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-N&lt;border&gt;[/&lt;pen&gt;]</span></code></dt>
+<dd><p class="first">绘制政治边界。</p>
+<p>该选项在某些地方与 <code class="docutils literal"><span class="pre">-E</span></code> 选项有重叠。边界类型 <code class="docutils literal"><span class="pre">&lt;border&gt;</span></code> 可以取：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">1</span></code> ：国界</li>
+<li><code class="docutils literal"><span class="pre">2</span></code> ：州界；（目前只有美国、加拿大、澳大利亚以及南美各国的数据）</li>
+<li><code class="docutils literal"><span class="pre">3</span></code> ：Marine boundaries</li>
+<li><code class="docutils literal"><span class="pre">a</span></code> ：1-3的全部边界；</li>
+</ul>
+<p>说明：</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal"><span class="pre">&lt;border&gt;</span></code> 是必须值， <code class="docutils literal"><span class="pre">&lt;pen&gt;</span></code> 是可选值</li>
+<li>可以多次重复使用 <code class="docutils literal"><span class="pre">-N</span></code> 选项，指定不同级别的边界</li>
+<li><code class="docutils literal"><span class="pre">&lt;pen&gt;</span></code> 的默认值是 <code class="docutils literal"><span class="pre">default,black,solid</span></code></li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-Q</span></code></dt>
+<dd><p class="first">关闭区域裁剪。</p>
+<p class="last">使用 <code class="docutils literal"><span class="pre">-Gc</span></code> 和 <code class="docutils literal"><span class="pre">-Sc</span></code> 可以分别裁剪出dry区域和wet区域，接下来的其他绘图命令中只有在裁剪区域内的部分才会被绘制。在绘图结束后，需要关闭裁剪，就需要再次调用 <code class="docutils literal"><span class="pre">pscoast</span></code> ，并加上 <code class="docutils literal"><span class="pre">-Q</span></code> 选项。若在开启裁剪后使用了 <code class="docutils literal"><span class="pre">-X</span></code> 和 <code class="docutils literal"><span class="pre">-Y</span></code> 选项，则在关闭时也要记得使用 <code class="docutils literal"><span class="pre">-X</span></code> 和  <code class="docutils literal"><span class="pre">-Y</span></code> 。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-S</span></code></dt>
+<dd><p class="first">设置wet区域的填充色或裁剪wet区域</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal"><span class="pre">-G&lt;fill&gt;</span></code> 设置wet区域（一般指海洋或湖泊）的填充色</li>
+<li><code class="docutils literal"><span class="pre">-Gc</span></code> 将wet区域裁剪出来，使得接下来的绘图只有wet区域内的才会被绘制</li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-T</span></code></dt>
+<dd>绘制方向玫瑰图或磁场玫瑰图，见 <a class="reference internal" href="psbasemap.html"><span class="doc">psbasemap</span></a> 中的选项介绍</dd>
+<dt><code class="docutils literal"><span class="pre">-W[&lt;level&gt;/]&lt;pen&gt;</span></code></dt>
+<dd><p class="first">绘制湖岸线（shoreline）。</p>
+<p>shore指水与陆地交界的“岸”（如：海岸、湖岸、河岸等），是一个较为笼统的说法。</p>
+<p>GMT将shoreline分成四个等级（ <code class="docutils literal"><span class="pre">&lt;level&gt;</span></code> 取1-4）：</p>
+<ol class="arabic simple">
+<li>coastline：海岸线</li>
+<li>lakeshore：湖泊与陆地的岸线</li>
+<li>island-in-lake shore：首先要有陆地，陆地中有个湖，湖里有个岛。即岛的岸线</li>
+<li>lake-in-island-in-lake shore：首先有陆地，陆地中有个湖，湖中有个岛，岛里又有个湖。这里指的是湖的岸线</li>
+</ol>
+<p>使用时需要注意：</p>
+<ol class="last arabic simple">
+<li>不使用 <code class="docutils literal"><span class="pre">-W</span></code> 选项，则不绘制任何shore</li>
+<li>使用 <code class="docutils literal"><span class="pre">-W</span></code> ，给定画笔属性 <code class="docutils literal"><span class="pre">&lt;pen&gt;</span></code> ，但不给出 <code class="docutils literal"><span class="pre">&lt;level&gt;</span></code> ，则绘制四个level的shore</li>
+<li>可以用 <code class="docutils literal"><span class="pre">-W&lt;level&gt;/&lt;pen&gt;</span></code> 的方式指定要绘制哪一个level的shore，并指定线条属性，在同一个命令中可以多次使用 <code class="docutils literal"><span class="pre">-W</span></code> ，以指定不同level的shore的画笔属性</li>
+<li><code class="docutils literal"><span class="pre">-W</span></code> 选项中 <code class="docutils literal"><span class="pre">&lt;level&gt;</span></code> 是可选的，而 <code class="docutils literal"><span class="pre">&lt;pen&gt;</span></code> 是必须的！因而 <code class="docutils literal"><span class="pre">-W2</span></code> 会被解释为所有level的画笔属性，而不是level 2</li>
+</ol>
+</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt pscoast -R-30/30/-40/40 -Jm0.1i -B5 -I1/1p,blue -N1/0.25p,- <span class="se">\</span>
+        -I2/0.25p,blue -W0.25p,white -Ggreen -Sblue -P &gt; africa.ps
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt pscoast -R-30/-10/60/65 -Jm1c -B5 -Gp100/28 &gt; iceland.ps
+</pre></div>
+</div>
+<p>将非洲区域裁剪出来，并在其中的陆地部分绘制地形:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt pscoast -R-30/30/-40/40 -Jm0.1i -B5 -Gc -P -K &gt; africa.ps
+gmt grdimage -Jm0.1i etopo5.nc -Ccolors.cpt -O -K &gt;&gt; africa.ps
+gmt pscoast -Q -O &gt;&gt; africa.ps
+</pre></div>
+</div>
+<p>绘制部分国家的国界线（似乎有BUG）:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt pscoast -JM6i -P -Baf -EGB,IT,FR+gblue+p0.25p,red+r -EES,PT,GR+gyellow &gt; map.ps
+</pre></div>
+</div>
+<p>提取冰岛的海岸线数据:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt pscoast -R-26/-12/62/68 -Dh -W -M &gt; iceland.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">错误消息:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pscoast: low resolution shoreline data base not installed.
+</pre></div>
+</div>
+<p>出现该错误的原因有如下几种：</p>
+<ol class="arabic simple">
+<li>未安装GSHHG海岸线数据</li>
+<li>安装了但路径不正确（建议的做法是把所有GSHHG的文件放在 <code class="docutils literal"><span class="pre">$GMTHOME/share/coast</span></code> 目录下）</li>
+<li>安装的netCDF版本号为3.x而不是4.x</li>
+<li>自行编译了netCDF 4.x，且编译时使用了 <code class="docutils literal"><span class="pre">--disbale-netcdf4</span></code> 选项</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="bugs">
+<h2>BUGS<a class="headerlink" href="#bugs" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">-E</span></code> 选项有尚未确定的BUG （v5.2.1）</li>
+</ol>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="pscoast" data-title="pscoast" data-url="http://modules.gmt-china.org/pscoast.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">pscoast</a><ul>
+<li><a class="reference internal" href="#id1">选项</a></li>
+<li><a class="reference internal" href="#id2">示例</a></li>
+<li><a class="reference internal" href="#faq">FAQ</a></li>
+<li><a class="reference internal" href="#bugs">BUGS</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="psclip.html"
+                          title="上一页">&larr; psclip</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="pscontour.html"
+                          title="下一页">&rarr; pscontour</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/pscoast.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/pscoast.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="pscontour.html" title="pscontour"
+             >下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="psclip.html" title="psclip"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

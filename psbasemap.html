@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>psbasemap &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="next" title="psclip" href="psclip.html" />
+    <link rel="prev" title="project" href="project.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="psclip.html" title="psclip"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="project.html" title="project"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="psbasemap">
+<span id="index-0"></span><h1>psbasemap<a class="headerlink" href="#psbasemap" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/psbasemap.html" title="(在 GMT v5.2.1)"><span>psbasemap</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">绘制底图</td>
+</tr>
+</tbody>
+</table>
+<p>该命令用于绘制底图边框（标注、刻度、标签等）、标题、比例尺、方向玫瑰等。</p>
+<div class="section" id="id1">
+<h2>选项<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">-B</span></code></dt>
+<dd><p class="first">绘制底图边框，见关于 <code class="docutils literal"><span class="pre">-B</span></code> 选项的介绍。</p>
+<p>示例代码:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>gmt psbasemap -R-180/180/-70/70 -JM10c -Bx60 -By30 &gt; test.ps
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-A[&lt;file&gt;]</span></code></dt>
+<dd><p class="first">不绘制图形，仅输出矩形底图的边框坐标。</p>
+<p>该选项会将矩形底图的边框坐标输出到标准输出或文件中。使用该选项时，必须通过 <code class="docutils literal"><span class="pre">-J</span></code> 和 <code class="docutils literal"><span class="pre">-R</span></code> 指定绘图区域，且不能同时使用其他选项。若不指定 <code class="docutils literal"><span class="pre">&lt;file&gt;</span></code> 则默认输出到标准输出，否则输出到文件 <code class="docutils literal"><span class="pre">&lt;file&gt;</span></code> 中</p>
+<p>说明：</p>
+<ol class="arabic simple">
+<li>该选项似乎仅适用于矩形底图边框，非矩形边框会输出一堆NaN</li>
+<li>尚不清楚该选项存在的意义</li>
+<li>边框的采样间隔由参数 <code class="docutils literal"><span class="pre">MAP_LINE_STEP</span></code> 决定</li>
+<li>该选项似乎有bug</li>
+</ol>
+<p>示例:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>gmt psbasemap -R0/10/0/10 -JX10c/5c -Aoutline.txt
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-D</span></code></dt>
+<dd><p class="first">在底图中绘制图中图（insert map box），需要 <code class="docutils literal"><span class="pre">-F</span></code> 选项，其语法有两种:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-D<span class="o">[</span>&lt;unit&gt;<span class="o">]</span>&lt;xmin&gt;/&lt;xmax&gt;/&lt;ymin&gt;/&lt;ymax&gt;<span class="o">[</span>r<span class="o">][</span>+s&lt;file&gt;<span class="o">]</span>
+-D<span class="o">[</span>g<span class="p">|</span>j<span class="p">|</span>J<span class="p">|</span>n<span class="p">|</span>x<span class="o">]</span>&lt;refpoint&gt;+w&lt;width&gt;<span class="o">[</span>/&lt;height&gt;<span class="o">][</span>+j&lt;justify&gt;<span class="o">][</span>+o&lt;dx&gt;<span class="o">[</span>/&lt;dy&gt;<span class="o">]][</span>+s&lt;file&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<p>先解释图中图（insert box）的概念。在绘制一个小区域时，为了表明该小区域在地球上的位置，通常需要在一张更大范围（比如整个中国或整个地球）的底图上标出小区域所在的位置，这种绘图形式通常称为insert map。而insert box就是insert map的边框。</p>
+<p>指定insert map box的范围有三种方法：</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">-D&lt;xmin&gt;/&lt;xmax&gt;/&lt;ymin&gt;/&lt;ymax&gt;[r]</span></code> ：类似 <code class="docutils literal"><span class="pre">-R</span></code> 的语法，直接指定insert box在地图上的范围</li>
+<li><code class="docutils literal"><span class="pre">-D&lt;unit&gt;&lt;xmin&gt;/&lt;xmax&gt;/&lt;ymin&gt;/&lt;ymax&gt;</span></code> ：类似 <code class="docutils literal"><span class="pre">-R</span></code> 的语法，指定投影后的坐标范围， <code class="docutils literal"><span class="pre">&lt;unit&gt;</span></code> 为投影后的坐标单位</li>
+<li>指定参考点和锚点，见 <a class="reference external" href="http://docs.gmt-china.org/embellishments.html" title="(在 GMT v5.2.1)"><span>embellishments</span></a> 一节<ol class="arabic">
+<li><code class="docutils literal"><span class="pre">[g|j|J|n|x]&lt;refpoint&gt;</span></code> 指定大区域底图上的参考点</li>
+<li><code class="docutils literal"><span class="pre">+j&lt;justify&gt;</span></code> 指定insert box上的锚点</li>
+<li><code class="docutils literal"><span class="pre">+o&lt;dx&gt;/&lt;dy&gt;</span></code> 指定参考点的额外偏移量</li>
+<li><code class="docutils literal"><span class="pre">+w&lt;width&gt;[/&lt;height&gt;]</span></code> 指定insert box的宽度或/和高度</li>
+</ol>
+</li>
+</ol>
+<p class="last">使用 <code class="docutils literal"><span class="pre">+s&lt;file&gt;</span></code> 选项，会将insert box的左下角位置以及其长宽写到文件中，坐标值以及长度值均使用当前地图单位。</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-F</span></code></dt>
+<dd><p class="first">控制insert box、比例尺和方向玫瑰的背景边框的属性。</p>
+<p>其语法为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-F<span class="o">[</span>d<span class="p">|</span>l<span class="p">|</span>t<span class="o">][</span>+c&lt;clearances&gt;<span class="o">][</span>+g&lt;fill&gt;<span class="o">][</span>+i<span class="o">[[</span>&lt;gap&gt;/<span class="o">]</span>&lt;pen&gt;<span class="o">]][</span>+p<span class="o">[</span>&lt;pen&gt;<span class="o">]][</span>+r<span class="o">[</span>&lt;radius&gt;<span class="o">]][</span>+s<span class="o">[[</span>&lt;dx&gt;/&lt;dy&gt;/<span class="o">][</span>&lt;shade&gt;<span class="o">]]]</span>
+</pre></div>
+</div>
+<p>说明：</p>
+<ol class="last arabic simple">
+<li>见 <a class="reference external" href="http://docs.gmt-china.org/embellishments.html" title="(在 GMT v5.2.1)"><span>embellishments</span></a> 一节的详细介绍</li>
+<li>该选项用于给insert box、比例尺和方向玫瑰绘制背景边框，默认同时控制三者的属性</li>
+<li><code class="docutils literal"><span class="pre">d|l|t</span></code> 表示该选项定义的属性仅适用于 <code class="docutils literal"><span class="pre">-D</span></code> 、 <code class="docutils literal"><span class="pre">-L</span></code> 或 <code class="docutils literal"><span class="pre">-T</span></code> 选项</li>
+<li>直接使用 <code class="docutils literal"><span class="pre">-F</span></code> 选项，则绘制背景边框，边框属性由参数 <code class="docutils literal"><span class="pre">MAP_FRAME_PEN</span></code> 控制</li>
+</ol>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-L</span></code></dt>
+<dd><p class="first">在地图上绘制比例尺。</p>
+<p>该选项的语法为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-L<span class="o">[</span>g<span class="p">|</span>j<span class="p">|</span>J<span class="p">|</span>n<span class="p">|</span>x<span class="o">]</span>&lt;refpoint&gt;+c<span class="o">[</span>&lt;slon&gt;/<span class="o">]</span>&lt;slat&gt;+w&lt;length&gt;<span class="o">[</span>e<span class="p">|</span>f<span class="p">|</span>k<span class="p">|</span>M<span class="p">|</span>n<span class="p">|</span>u<span class="o">][</span>+a&lt;align&gt;<span class="o">][</span>+f<span class="o">][</span>+l<span class="o">[</span>&lt;label&gt;<span class="o">]][</span>+u<span class="o">]</span>
+</pre></div>
+</div>
+<p>说明：</p>
+<ol class="arabic simple">
+<li>大部分在 <a class="reference external" href="http://docs.gmt-china.org/embellishments.html" title="(在 GMT v5.2.1)"><span>embellishments</span></a> 一节已经介绍了</li>
+<li><code class="docutils literal"><span class="pre">[g|j|J|n|x]&lt;refpoint&gt;</span></code> 指定地图上的参考点，比例尺的锚点位于比例尺的中心</li>
+<li><code class="docutils literal"><span class="pre">+c&lt;slon&gt;/&lt;slat&gt;</span></code> 要绘制哪一个点的比例尺</li>
+<li><code class="docutils literal"><span class="pre">+w&lt;length&gt;[e|f|M|n|k|u]</span></code> 比例尺的长度，默认单位为km，也可使用其他长度单位</li>
+<li><code class="docutils literal"><span class="pre">+a&lt;align&gt;</span></code> 修改比例尺标签的位置，默认位于比例尺上方中文，可以取 <code class="docutils literal"><span class="pre">l</span></code> 、 <code class="docutils literal"><span class="pre">r</span></code> 、 <code class="docutils literal"><span class="pre">t`</span></code> 、 <code class="docutils literal"><span class="pre">b</span></code> 分别代表左右上下</li>
+<li><code class="docutils literal"><span class="pre">+l&lt;label&gt;</span></code> 为比例尺加标签；若不指定 <code class="docutils literal"><span class="pre">&lt;label&gt;</span></code> ，默认的标签是比例尺所使用的长度单位</li>
+<li><code class="docutils literal"><span class="pre">+u</span></code> 比例尺的标注默认只有值没有单位，该选项会给标注加上单位</li>
+<li><code class="docutils literal"><span class="pre">+f</span></code> 默认是简单的比例尺，使用该选项则绘制fancy比例尺，即火车轨道比例尺</li>
+</ol>
+<p>相关参数：</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">FONT_LABEL</span></code> 控制比例尺的标签字体</li>
+<li><code class="docutils literal"><span class="pre">FONT_ANNOT_PRIMARY</span></code> 控制比例尺的标注字体</li>
+<li><code class="docutils literal"><span class="pre">MAP_SCALE_HEIGHT</span></code> 控制比例尺的高度</li>
+<li><code class="docutils literal"><span class="pre">MAP_TICK_PEN_PRIMARY</span></code> 控制比例尺的刻度属性</li>
+</ol>
+<p>示例:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>gmt psbasemap -R90/110/30/40 -JM10c -Bx5 -By5 -Lg95/35+c35+w800k+lscale+u+f &gt; test.ps
+
+gmt psbasemap -R90/180/-50/50 -Jm0.025i -Bafg -B+tMercator -Lx1i/1i+c0+w5000k &gt; mercator.ps
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-Td</span></code></dt>
+<dd><p class="first">绘制方向玫瑰图，其语法为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-Td<span class="o">[</span>g<span class="p">|</span>j<span class="p">|</span>J<span class="p">|</span>n<span class="p">|</span>x<span class="o">]</span>&lt;refpoint&gt;+w&lt;width&gt;<span class="o">[</span>+f<span class="o">[</span>&lt;level&gt;<span class="o">]][</span>+j&lt;justify&gt;<span class="o">][</span>+l&lt;w,e,s,n&gt;<span class="o">][</span>+o&lt;dx&gt;<span class="o">[</span>/&lt;dy&gt;<span class="o">]]</span>
+</pre></div>
+</div>
+<p>说明：</p>
+<ol class="arabic simple">
+<li>大部分在 <a class="reference external" href="http://docs.gmt-china.org/embellishments.html" title="(在 GMT v5.2.1)"><span>embellishments</span></a> 一节已经介绍了</li>
+<li><code class="docutils literal"><span class="pre">[g|j|J|n|x]&lt;refpoint&gt;</span></code> 指定地图上的参考点</li>
+<li><code class="docutils literal"><span class="pre">+j&lt;justify&gt;</span></code> 指定玫瑰图上的锚点（默认为 <code class="docutils literal"><span class="pre">MC</span></code> ）</li>
+<li><code class="docutils literal"><span class="pre">+o&lt;dx&gt;/&lt;dy&gt;</span></code> 指定参考点的偏移量</li>
+<li><code class="docutils literal"><span class="pre">+w&lt;width&gt;</span></code> 玫瑰图的宽度</li>
+<li><code class="docutils literal"><span class="pre">+f&lt;level&gt;</span></code> 绘制fancy玫瑰图， <code class="docutils literal"><span class="pre">&lt;level&gt;</span></code> 指定了fancy玫瑰图的不同类型， <code class="docutils literal"><span class="pre">&lt;level&gt;</span></code> 可以取：<ul>
+<li><code class="docutils literal"><span class="pre">1</span></code> 绘制E-W和N-S四个方向</li>
+<li><code class="docutils literal"><span class="pre">2</span></code> 绘制8个方向</li>
+<li><code class="docutils literal"><span class="pre">3</span></code> 绘制16个方向</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">+l&lt;w&gt;,&lt;e&gt;,&lt;s&gt;,&lt;n&gt;</span></code> 为四个方向分别指定标签，默认标签是四个方向的单字母代码（英文语言下是W、E、S、N，具体值由参数 <code class="docutils literal"><span class="pre">GMT_LANGUAGE</span></code> ），四个方向的标签之间用逗号分隔，比如 <code class="docutils literal"><span class="pre">+lw,e,s,n</span></code> 或 <code class="docutils literal"><span class="pre">+l&quot;,,Down,Up&quot;</span></code></li>
+</ol>
+<p>下图展示了方向玫瑰图的效果图：</p>
+<div class="last figure align-center" id="id3">
+<a class="reference internal image-reference" href="_images/psbasemap_ex3.png"><img alt="_images/psbasemap_ex3.png" src="_images/psbasemap_ex3.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">方向玫瑰图</span></p>
+<div class="legend">
+（左） <code class="docutils literal"><span class="pre">-Tdg0/0+w1i+jCM</span></code>
+（中） <code class="docutils literal"><span class="pre">-Tdg0/0+w1i+f1+jCM</span></code>
+（右） <code class="docutils literal"><span class="pre">-Tdg0/0+w1i+f3+l+jCM</span></code></div>
+</div>
+</dd>
+<dt><code class="docutils literal"><span class="pre">-Tm</span></code></dt>
+<dd><p class="first">绘制磁场玫瑰图，用于展示磁场方向。</p>
+<p>其语法为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-Tm<span class="o">[</span>g<span class="p">|</span>j<span class="p">|</span>J<span class="p">|</span>n<span class="p">|</span>x<span class="o">]</span>&lt;refpoint&gt;+w&lt;width&gt;<span class="o">[</span>+d&lt;dec&gt;<span class="o">[</span>/&lt;dlabel&gt;<span class="o">]]][</span>+i&lt;pen&gt;<span class="o">][</span>+j&lt;justify&gt;<span class="o">][</span>+l&lt;w&gt;,&lt;e&gt;,&lt;s&gt;,&lt;n&gt;<span class="o">][</span>+p&lt;pen&gt;<span class="o">][</span>+t&lt;ints&gt;<span class="o">][</span>+o&lt;dx&gt;<span class="o">[</span>/&lt;dy&gt;<span class="o">]]</span>
+</pre></div>
+</div>
+<p>磁场玫瑰包括两个同心圆环，其中外环用于展示方向信息，内环用于显示磁场方向。</p>
+<p>说明：</p>
+<ol class="last arabic simple">
+<li>大部分在 <a class="reference external" href="http://docs.gmt-china.org/embellishments.html" title="(在 GMT v5.2.1)"><span>embellishments</span></a> 一节已经介绍了</li>
+<li><code class="docutils literal"><span class="pre">[g|j|J|n|x]&lt;refpoint&gt;</span></code> 指定地图上的参考点</li>
+<li><code class="docutils literal"><span class="pre">+j&lt;justify&gt;</span></code> 指定玫瑰图上的锚点（默认为 <code class="docutils literal"><span class="pre">MC</span></code> ）</li>
+<li><code class="docutils literal"><span class="pre">+o&lt;dx&gt;/&lt;dy&gt;</span></code> 指定参考点的偏移量</li>
+<li><code class="docutils literal"><span class="pre">+w&lt;width&gt;</span></code> 玫瑰图的宽度</li>
+<li><code class="docutils literal"><span class="pre">+p&lt;pen&gt;</span></code> 绘制外环的轮廓</li>
+<li><code class="docutils literal"><span class="pre">+i&lt;pen&gt;</span></code> 绘制内环的轮廓</li>
+<li><code class="docutils literal"><span class="pre">+d&lt;dec&gt;/&lt;dlabel&gt;</span></code> 设置磁倾角以及罗盘指针上的磁倾角标签。若 <code class="docutils literal"><span class="pre">&lt;dlabel&gt;</span></code> 为空，则使用默认标签 <code class="docutils literal"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">&lt;dec&gt;</span></code> ；若 <code class="docutils literal"><span class="pre">&lt;dlabel&gt;</span></code> 为 <code class="docutils literal"><span class="pre">-</span></code> ，则不绘制标签。当使用 <code class="docutils literal"><span class="pre">+d</span></code> 子选项时，会同时绘制地理方向和磁场方向</li>
+<li><code class="docutils literal"><span class="pre">+l&lt;w&gt;,&lt;e&gt;,&lt;s&gt;,&lt;n&gt;</span></code> 为四个方向的标签，默认标签是四个方向的单字母代码（英文语言下是W、E、S、N，具体值由参数 <code class="docutils literal"><span class="pre">GMT_LANGUAGE</span></code> ；若 <code class="docutils literal"><span class="pre">&lt;n&gt;</span></code> 取值为 <code class="docutils literal"><span class="pre">*</span></code> ，则会在北方向标签处绘制星代表北极星</li>
+<li>内外环都可以设置标注、刻度和网格的间隔。内外环的间隔默认值都是 <code class="docutils literal"><span class="pre">30/5/1</span></code> 。可以使用 <code class="docutils literal"><span class="pre">+t&lt;ints&gt;</span></code> 选项，后面接6个斜杠分隔的值，以分别指定两个圆环的3种刻度值，其中前三个值控制内环属性，后三个值控制外环属性</li>
+</ol>
+</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>示例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>下面的脚本展示了一种insert box的用法：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">R</span><span class="o">=</span>115/123/35/40             <span class="c1"># 小区域地图的范围-R</span>
+<span class="nv">J</span><span class="o">=</span>M20c                      <span class="c1"># 小区域的投影方式-J</span>
+<span class="nv">PS</span><span class="o">=</span>psbasemap_ex1.ps
+
+<span class="c1"># 打开GMT</span>
+gmt psxy -R<span class="nv">$R</span> -J<span class="nv">$J</span> -T -K &gt; <span class="nv">$PS</span>
+
+<span class="c1"># 绘制小区域的地图</span>
+gmt pscoast -R<span class="nv">$R</span> -J<span class="nv">$J</span> -B1 -Df -W2p -I2p -N1/2p -A1000 -K -O &gt;&gt; <span class="nv">$PS</span>
+<span class="c1"># ...</span>
+<span class="c1"># 此处可以任意添加其他绘图命令</span>
+<span class="c1"># ...</span>
+
+<span class="c1"># 开始绘制insert map</span>
+<span class="nv">Rg</span><span class="o">=</span>72/135/16/55     <span class="c1"># 大区域地图的范围-R</span>
+<span class="nv">Jg</span><span class="o">=</span>M7c              <span class="c1"># 大区域地图的投影方式-J</span>
+<span class="c1"># 绘制大区域地图的海岸线及边框</span>
+gmt pscoast -R<span class="nv">$Rg</span> -J<span class="nv">$Jg</span> -B0 -B+gwhite -Df -N1 -W -A5000 -K -O --MAP_FRAME_TYPE<span class="o">=</span>plain &gt;&gt; <span class="nv">$PS</span>
+<span class="c1"># 在大区域地图内绘制小区域所在的方框</span>
+gmt psbasemap -R<span class="nv">$Rg</span> -J<span class="nv">$Jg</span> -D<span class="nv">$R</span> -F+p2p,blue -K -O &gt;&gt; <span class="nv">$PS</span>
+
+<span class="c1"># 结束GMT绘图</span>
+gmt psxy -R<span class="nv">$R</span> -J<span class="nv">$J</span> -T -O &gt;&gt; <span class="nv">$PS</span>
+</pre></div>
+</div>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="_images/psbasemap_ex1.png"><img alt="_images/psbasemap_ex1.png" src="_images/psbasemap_ex1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">用psbasemap命令-D选项绘制图中图</span></p>
+</div>
+<p>下面的脚本绘制了另一种不同的insert box：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">ps</span><span class="o">=</span>psbasemap_ex2.ps
+
+<span class="c1"># 绘制澳大利亚的海岸线</span>
+gmt pscoast -R110E/170E/44S/9S -JM6i -P -Baf -BWSne -Wfaint -N2/1p -EAU+gbisque <span class="se">\</span>
+        -Gbrown -Sazure1 -Da -K -Xc --FORMAT_GEO_MAP<span class="o">=</span>dddF &gt; <span class="nv">$ps</span>
+
+<span class="c1"># 在右上角绘制insert box</span>
+gmt psbasemap -R -J -O -K -DjTR+w1.5i+o0.15i+stmp -F+gwhite+p1p+c0.1c+s &gt;&gt; <span class="nv">$ps</span>
+<span class="c1"># 从临时文件中读取insert box的左下角的位置</span>
+<span class="nb">read</span> x0 y0 w h &lt; tmp
+<span class="c1"># 在insert box内绘制全球地图，并突出显示澳大利亚</span>
+gmt pscoast -Rg -JG120/30S/<span class="nv">$w</span> -Da -Gbrown -A5000 -Bg -Wfaint -EAU+gbisque -O -K -X<span class="nv">$x0</span> -Y<span class="nv">$y0</span> &gt;&gt; <span class="nv">$ps</span>
+
+gmt psxy -R -J -O -T  -X-<span class="si">${</span><span class="nv">x0</span><span class="si">}</span> -Y-<span class="si">${</span><span class="nv">y0</span><span class="si">}</span> &gt;&gt; <span class="nv">$ps</span>
+
+rm gmt.* tmp
+</pre></div>
+</div>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="_images/psbasemap_ex2.png"><img alt="_images/psbasemap_ex2.png" src="_images/psbasemap_ex2.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">用psbasemap命令-D选项绘制另一种图中图</span></p>
+</div>
+<p>下面的脚本绘制了磁场玫瑰图：</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#	$Id$</span>
+<span class="nv">ps</span><span class="o">=</span>psbasemap_ex4.ps
+<span class="c1"># Magnetic rose with a specified declination</span>
+gmt psbasemap -R-10/-2/12.8812380332/0.661018975345r -JOc0/0/50/60/7i -Baf -BWSne -P -K -X1.25i <span class="se">\</span>
+        --MAP_ANNOT_OBLIQUE<span class="o">=</span><span class="m">34</span> --FONT_ANNOT_PRIMARY<span class="o">=</span>12p &gt; <span class="nv">$ps</span>
+gmt psbasemap -R -J -Tmg-2/0.5+w2.5i+d-14.5+t45/10/5+i0.25p,blue+p0.25p,red+l+jCM -O -K <span class="se">\</span>
+	--FONT_ANNOT_PRIMARY<span class="o">=</span>9p,Helvetica,blue --FONT_ANNOT_SECONDARY<span class="o">=</span>12p,Helvetica,red <span class="se">\</span>
+    --FONT_LABEL<span class="o">=</span>14p,Times-Italic,darkgreen --FONT_TITLE<span class="o">=</span>24p --MAP_TITLE_OFFSET<span class="o">=</span>7p <span class="se">\</span>
+    --MAP_FRAME_WIDTH<span class="o">=</span>10p --COLOR_BACKGROUND<span class="o">=</span>green --MAP_DEFAULT_PEN<span class="o">=</span>2p,darkgreen <span class="se">\</span>
+    --COLOR_BACKGROUND<span class="o">=</span>darkgreen --MAP_VECTOR_SHAPE<span class="o">=</span>0.5 --MAP_TICK_PEN_SECONDARY<span class="o">=</span>thinner,red <span class="se">\</span>
+    --MAP_TICK_PEN_PRIMARY<span class="o">=</span>thinner,blue &gt;&gt; <span class="nv">$ps</span>
+gmt psbasemap -R -J -O -K -DjTR+w2.9i/3.9i+o0.05i -F+p+ggray95 &gt;&gt; <span class="nv">$ps</span>
+<span class="nb">echo</span> <span class="s2">&quot;5.5 3.8 GMT DEFAULTS&quot;</span> <span class="p">|</span> gmt pstext -R0/7/0/5 -Jx1i -O -K -F+f14p,Helvetica-Bold+jCM &gt;&gt; <span class="nv">$ps</span>
+gmt pstext -R -J -O -K -F+f12p+jLM <span class="s">&lt;&lt; EOF &gt;&gt; $ps</span>
+<span class="s">4.1 3.50 FONT_TITLE</span>
+<span class="s">4.1 3.25 MAP_TITLE_OFFSET</span>
+<span class="s">4.1 3.00 MAP_DEGREE_SYMBOL</span>
+<span class="s">4.1 2.75 @;blue;FONT_ANNOT_PRIMARY@;;</span>
+<span class="s">4.1 2.50 @;blue;MAP_TICK_PEN_PRIMARY@;;</span>
+<span class="s">4.1 2.25 @;blue;MAP_ANNOT_OFFSET_PRIMARY@;;</span>
+<span class="s">4.1 2.00 @;blue;MAP_TICK_LENGTH_PRIMARY@;;</span>
+<span class="s">4.1 1.75 @;red;FONT_ANNOT_SECONDARY@;;</span>
+<span class="s">4.1 1.50 @;red;MAP_TICK_PEN_SECONDARY@;;</span>
+<span class="s">4.1 1.25 @;red;MAP_ANNOT_OFFSET_SECONDARY@;;</span>
+<span class="s">4.1 1.00 @;red;MAP_TICK_LENGTH_SECONDARY@;;</span>
+<span class="s">4.1 0.75 @;darkgreen;FONT_LABEL@;;</span>
+<span class="s">4.1 0.50 @;darkgreen;MAP_DEFAULT_PEN@;;</span>
+<span class="s">4.1 0.25 @;darkgreen;COLOR_BACKGROUND@;;</span>
+<span class="s">EOF</span>
+gmt psxy -R -J -O -T &gt;&gt; <span class="nv">$ps</span>
+rm gmt.*
+</pre></div>
+</div>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="_images/psbasemap_ex4.png"><img alt="_images/psbasemap_ex4.png" src="_images/psbasemap_ex4.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">磁场玫瑰图</span></p>
+</div>
+</div>
+<div class="section" id="bugs">
+<h2>BUGS<a class="headerlink" href="#bugs" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li>使用 <code class="docutils literal"><span class="pre">-A</span></code> 选项可以正常输出结果，但会出现 <code class="docutils literal"><span class="pre">double</span> <span class="pre">free</span></code> 的错误（v5.2.1）</li>
+</ol>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="psbasemap" data-title="psbasemap" data-url="http://modules.gmt-china.org/psbasemap.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">psbasemap</a><ul>
+<li><a class="reference internal" href="#id1">选项</a></li>
+<li><a class="reference internal" href="#id2">示例</a></li>
+<li><a class="reference internal" href="#bugs">BUGS</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="project.html"
+                          title="上一页">&larr; project</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="psclip.html"
+                          title="下一页">&rarr; psclip</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/psbasemap.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/psbasemap.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="psclip.html" title="psclip"
+             >下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="project.html" title="project"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

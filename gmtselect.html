@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>gmtselect &mdash; GMT模块手册</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.2.1-dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="GMT模块手册" href="index.html" />
+    <link rel="next" title="gmtset" href="gmtset.html" />
+    <link rel="prev" title="gmtregress" href="gmtregress.html" />
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- favicons -->
+
+<link rel="shortcut icon" href="_static/favicon.ico" type="image/x-icon" type="image/png" />
+
+<!-- Opera Speed Dial Icon -->
+<link rel="icon" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+
+<!-- Safari on iOS -->
+<link rel="apple-touch-icon" href="_static/apple-touch-icon.png"  type="image/png" />
+<link rel="apple-touch-icon" sizes="57x57" href="_static/apple-touch-icon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="_static/apple-touch-icon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="76x76" href="_static/apple-touch-icon-76x76.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="_static/apple-touch-icon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="_static/apple-touch-icon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="_static/apple-touch-icon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="_static/apple-touch-icon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon-180x180.png" type="image/png" />
+
+<!-- For tiles on Windows -->
+<meta name="msapplication-TileImage" content="_static/apple-touch-icon-114x114.png"/>
+<meta name="msapplication-TileColor" content="#d83434"/>
+
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="gmtset.html" title="gmtset"
+             accesskey="N">下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="gmtregress.html" title="gmtregress"
+             accesskey="P">上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+    <div class="documentwrapper"><div class="bodywrapper">
+        <div class="body" role="main">
+            
+  <div class="section" id="gmtselect">
+<span id="index-0"></span><h1>gmtselect<a class="headerlink" href="#gmtselect" title="永久链接至标题">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">官方文档:</th><td class="field-body"><a class="reference external" href="http://gmt.soest.hawaii.edu/doc/5.2.1/gmtselect.html" title="(在 GMT v5.2.1)"><span>gmtselect</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">简介:</th><td class="field-body">根据多个准则筛选数据</td>
+</tr>
+</tbody>
+</table>
+<p>该命令会从输入文件中读取前两列作为经度和纬度，并判断经纬度是否符合一定的空间准则，以筛选出符合条件的记录。输入文件中仅前两列会被使用。</p>
+<p>六个空间准则包括：</p>
+<ol class="arabic simple">
+<li>在矩形区域内（ <code class="docutils literal"><span class="pre">-R</span></code> 和 <code class="docutils literal"><span class="pre">-J</span></code> ）</li>
+<li>与 <code class="docutils literal"><span class="pre">ptfile</span></code> 中的每个点的距离在 <code class="docutils literal"><span class="pre">dist</span></code> 之内</li>
+<li>与 <code class="docutils literal"><span class="pre">linefile</span></code> 中的每条线的距离在 <code class="docutils literal"><span class="pre">dist</span></code> 之内</li>
+<li>在 <code class="docutils literal"><span class="pre">polygonfile</span></code> 中的多边形内</li>
+<li>在某个地理区域内（需要海岸线数据）</li>
+<li>z值在某个范围内</li>
+</ol>
+<div class="section" id="id1">
+<h2>六个空间准则<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt>准则1</dt>
+<dd><p class="first">筛选出在某个矩形区域内（通过 <code class="docutils literal"><span class="pre">-R</span></code> 和 <code class="docutils literal"><span class="pre">-J</span></code> 选项控制）的点:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>gmt <span class="k">select</span> points.xy -R0/5/0/5
+</pre></div>
+</div>
+</dd>
+<dt>准则2</dt>
+<dd><p class="first">与 <code class="docutils literal"><span class="pre">&lt;ptfile&gt;</span></code> 中的每个点的距离在 <code class="docutils literal"><span class="pre">&lt;dist&gt;</span></code> 内，由 <code class="docutils literal"><span class="pre">-C</span></code> 选项控制，其语法为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-C&lt;dist&gt;<span class="o">[</span>&lt;unit&gt;<span class="o">]</span>/&lt;ptfile&gt;
+</pre></div>
+</div>
+<p>该准则会筛选出与文件 <code class="docutils literal"><span class="pre">&lt;ptfile&gt;</span></code> 中的每个点的距离在 <code class="docutils literal"><span class="pre">&lt;dist&gt;</span></code> 之内的记录。若 <code class="docutils literal"><span class="pre">dist</span></code> 等于0，则 <code class="docutils literal"><span class="pre">&lt;ptfile&gt;</span></code> 中的第三列是每个数据点各自的影响半径，即筛选出不在任何一个数据点的影响半径内的点。</p>
+<p class="last">默认情况下 <code class="docutils literal"><span class="pre">&lt;dist&gt;</span></code> 是笛卡尔坐标系下的距离，单位为用户单位。若指定 <code class="docutils literal"><span class="pre">-fg</span></code> 选项，则表明 <code class="docutils literal"><span class="pre">&lt;dist&gt;</span></code> 为球面距离。若使用了 <code class="docutils literal"><span class="pre">-R</span></code> 和 <code class="docutils literal"><span class="pre">-J</span></code> ，则 <code class="docutils literal"><span class="pre">&lt;dist&gt;</span></code> 表示投影后的纸面距离。</p>
+</dd>
+<dt>准则3</dt>
+<dd><p class="first">与 <code class="docutils literal"><span class="pre">linefile</span></code> 中的每条线的距离在 <code class="docutils literal"><span class="pre">dist</span></code> 之内，由 <code class="docutils literal"><span class="pre">-L</span></code> 选项控制，其语法为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-L<span class="o">[</span>p<span class="o">]</span>&lt;dist&gt;<span class="o">[</span>&lt;unit&gt;<span class="o">]</span>/&lt;linefile&gt;
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&lt;linefile&gt;</span></code> 中包含了一系列线段，该准则会筛选出与这些线段的距离不超过 <code class="docutils literal"><span class="pre">&lt;dist&gt;</span></code> 的记录。</p>
+<p>若 <code class="docutils literal"><span class="pre">&lt;dist&gt;</span></code>等于零，则可以在 <code class="docutils literal"><span class="pre">&lt;ptfile&gt;</span></code> 中每段数据的段头记录中使用 <code class="docutils literal"><span class="pre">-D&lt;dist&gt;</span></code> 参数，为每个线段分别指定距离值。</p>
+<p>默认情况下 <code class="docutils literal"><span class="pre">&lt;dist&gt;</span></code> 是笛卡尔坐标系下的距离，单位为用户单位。若指定 <code class="docutils literal"><span class="pre">-fg</span></code> 选项，则表明 <code class="docutils literal"><span class="pre">&lt;dist&gt;</span></code> 为球面距离。若使用了 <code class="docutils literal"><span class="pre">-R</span></code> 和 <code class="docutils literal"><span class="pre">-J</span></code> ，则 <code class="docutils literal"><span class="pre">&lt;dist&gt;</span></code> 表示投影后的纸面距离。</p>
+<p class="last">使用 <code class="docutils literal"><span class="pre">-Lp</span></code> 则会将数据点垂直投影到线段上，只有投影的位置在线段的端点内的记录才会被保留，即只有线段左右一定距离内的点才会被保留，线段两端点一定距离内的点不会被保留。</p>
+</dd>
+<dt>准则4</dt>
+<dd><p class="first">筛选出在某个多边形内的点，由 <code class="docutils literal"><span class="pre">-F</span></code> 选项控制，其语法为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-F&lt;polygonfile&gt;
+</pre></div>
+</div>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;polygonfile&gt;</span></code> 中可以包含一个或多个多边形，该选项筛选出所有在多边形内的记录。</p>
+</dd>
+<dt>准则5</dt>
+<dd><p class="first">根据地理特征信息筛选数据，由 <code class="docutils literal"><span class="pre">-N</span></code> 和 <code class="docutils literal"><span class="pre">-D</span></code> 选项控制。 <code class="docutils literal"><span class="pre">-N</span></code> 选项的语法为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-N&lt;wet&gt;/&lt;dry&gt;
+</pre></div>
+</div>
+<p>或:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-N&lt;ocean&gt;/&lt;land&gt;/&lt;lake&gt;/&lt;island&gt;/&lt;pond&gt;
+</pre></div>
+</div>
+<p class="last">其中每一项都可以取为 <code class="docutils literal"><span class="pre">s|k</span></code> ，分别表示skip或keep，即跳过或保留该地理特征内的记录。默认值为 <code class="docutils literal"><span class="pre">-Ns/k</span></code> ，即保留所有陆地上的记录。</p>
+</dd>
+<dt>准则6</dt>
+<dd><p class="first">筛选Z值在某个范围内的点，由 <code class="docutils literal"><span class="pre">-Z</span></code> 选项控制。其语法为:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>-Z&lt;min&gt;<span class="o">[</span>/&lt;max&gt;<span class="o">][</span>+c&lt;col&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<p>判断记录的Z值是否在 <code class="docutils literal"><span class="pre">&lt;min&gt;</span></code> 到 <code class="docutils literal"><span class="pre">&lt;max&gt;</span></code> 之间。可以使用 <code class="docutils literal"><span class="pre">+c&lt;col&gt;</span></code> 指定记录中的某一列作为Z值，默认以第三列（col=2）作为Z值。若省略了 <code class="docutils literal"><span class="pre">&lt;max&gt;</span></code> ，则判断Z值是否等于 <code class="docutils literal"><span class="pre">&lt;min&gt;</span></code> 。若不限制范围的上限或下限，可以使用 <code class="docutils literal"><span class="pre">-</span></code> 代替。</p>
+<p class="last">若想要对多列做类似的测试，可以重复使用-Z选项，每次指定不同的列号。</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h2>选项<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">-A</span></code></dt>
+<dd>不考虑面积过小的湖泊的边界，或不考虑某个级别的湖泊边界。见 <a class="reference internal" href="pscoast.html"><span class="doc">pscoast</span></a> 中 <code class="docutils literal"><span class="pre">-A</span></code> 选项的介绍。</dd>
+<dt><code class="docutils literal"><span class="pre">-D&lt;resolution&gt;[+]</span></code></dt>
+<dd>选择海岸线数据的精度，仅与 <code class="docutils literal"><span class="pre">-N</span></code> 选项一起使用有效。见 <a class="reference internal" href="pscoast.html"><span class="doc">pscoast</span></a> 中 <code class="docutils literal"><span class="pre">-D</span></code> 选项的介绍。</dd>
+<dt><code class="docutils literal"><span class="pre">-E[fn]</span></code></dt>
+<dd>在判断点是否在一个多边形内时，默认会将恰好在多边形上的点也认为是在多边形内，使用该选项会将多边形上的点认为是在多边形外部。 <code class="docutils literal"><span class="pre">f</span></code> 和 <code class="docutils literal"><span class="pre">n</span></code> 分别对应于 <code class="docutils literal"><span class="pre">-F</span></code> 和 <code class="docutils literal"><span class="pre">-N</span></code> 选项。</dd>
+<dt><code class="docutils literal"><span class="pre">-I[cflrsz]</span></code></dt>
+<dd>对六个准则取反，即筛选出不符合准则的记录。c、f、l、r、s、z分别对应于 <code class="docutils literal"><span class="pre">-C</span></code> 、 <code class="docutils literal"><span class="pre">-F</span></code> 、 <code class="docutils literal"><span class="pre">-L</span></code> 、 <code class="docutils literal"><span class="pre">-R</span></code> 、 <code class="docutils literal"><span class="pre">-S</span></code> 和 <code class="docutils literal"><span class="pre">-Z</span></code></dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h2>示例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>筛选与 <code class="docutils literal"><span class="pre">pts.d</span></code> 中所有点的距离在300 km以内，与 <code class="docutils literal"><span class="pre">lines.d</span></code> 中线段的距离在100 km以外的点:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt <span class="k">select</span> lonlatfile -fg -C300k/pts.d -L100/lines.d -Il &gt; subset
+</pre></div>
+</div>
+<p>此处需要使用 <code class="docutils literal"><span class="pre">-fg</span></code> 以告知程序正在处理地理数据。</p>
+<p>筛选某个区域内所有不在陆地上的点:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt <span class="k">select</span> data.d -R120/121/22/24 -Dh -Nk/s &gt; subset
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">stations.d</span></code> 中的点投影后与 <code class="docutils literal"><span class="pre">origin.d</span></code> 的距离在5 cm之内的点:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gmt <span class="k">select</span> stations.d -C5/origin.d -R20/50/-10/20 -JM20c <span class="se">\</span>
+         --PROJ_LENGTH_UNIT<span class="o">=</span>cm &gt; subset2
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="gmtselect" data-title="gmtselect" data-url="http://modules.gmt-china.org/gmtselect.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gmt-china"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+        </div></div>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">目录</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">gmtselect</a><ul>
+<li><a class="reference internal" href="#id1">六个空间准则</a></li>
+<li><a class="reference internal" href="#id2">选项</a></li>
+<li><a class="reference internal" href="#id3">示例</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>上一页</h4>
+    <p class="topless"><a href="gmtregress.html"
+                          title="上一页">&larr; gmtregress</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>下一页</h4>
+    <p class="topless"><a href="gmtset.html"
+                          title="下一页">&rarr; gmtset</a></p>
+  </div>
+  <h3>本页</h3>
+  <ul class="this-page-menu">
+    <li><a href="https://github.com/gmt-china/GMT_modules/blob/master/source/gmtselect.rst"
+           rel="nofollow">Show on GitHub</a></li>
+    <li><a href="https://github.com/gmt-china/GMT_modules/edit/master/source/gmtselect.rst"
+           rel="nofollow">Edit on GitHub</a></li>
+  </ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="gmtset.html" title="gmtset"
+             >下一页</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="gmtregress.html" title="gmtregress"
+             >上一页</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">GMT模块手册</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; 版权所有 2014-2016, GMT中文社区.
+      最后更新于 2016年08月13日.
+      由 <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5 创建。
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
